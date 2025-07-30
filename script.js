@@ -23,8 +23,8 @@ centipede.className = 'centipede';
 document.body.appendChild(centipede);
 
 document.addEventListener('mousemove', (e) => {
-    const x = e.clientX - 20;
-    const y = e.clientY - 20;
+    const x = e.clientX - 10; // Adjust offset to center the centipede
+    const y = e.clientY - 10;
     centipede.style.left = `${x}px`;
     centipede.style.top = `${y}px`;
 });
