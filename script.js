@@ -22,7 +22,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Rocket cursor
 const rocket = document.createElement('div');
 rocket.className = 'rocket';
-rocket.textContent = '🚀'; // Rocket emoji
+rocket.textContent = '🚀';
 document.body.appendChild(rocket);
 console.log('Rocket added to body'); // Debug log
 
