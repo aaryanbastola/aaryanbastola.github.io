@@ -1,0 +1,29 @@
+.smoke-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.smoke-bg::before,
+.smoke-bg::after {
+  content: '';
+  position: absolute;
+  top: -100px; left: -100px; right: -100px; bottom: -100px;
+  background: url('https://www.transparenttextures.com/patterns/smoke.png') repeat;
+  opacity: 0.09;
+  animation: moveSmoke 45s linear infinite;
+}
+
+.smoke-bg::after {
+  opacity: 0.13;
+  background: url('https://www.transparenttextures.com/patterns/clouds.png') repeat;
+  animation-delay: 10s;
+  animation-duration: 65s;
+}
+
+@keyframes moveSmoke {
+  0% { background-position: 0 0; }
+  100% { background-position: 500px 400px; }
+}
