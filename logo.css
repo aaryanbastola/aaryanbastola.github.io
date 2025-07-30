@@ -1,5 +1,29 @@
 /* Styles for Aaryan Bastola Logo */
 
+.cv-btn-container {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 1000;
+}
+
+.cv-btn {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cv-btn:hover {
+    background: #444;
+}
+
 .logo-container {
     display: flex;
     justify-content: center;
@@ -18,5 +42,13 @@
 @media (max-width: 600px) {
     .logo-img {
         max-width: 90vw;
+    }
+    .cv-btn-container {
+        right: 10px;
+        top: 10px;
+    }
+    .cv-btn {
+        font-size: 16px;
+        padding: 8px 16px;
     }
 }
