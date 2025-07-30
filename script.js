@@ -9,7 +9,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth' });
-            playBookTurnSound();
+            // Check if the link should not play sound (e.g., "See My Work" button)
+            if (!this.hasAttribute('data-no-sound')) {
+                playBookTurnSound();
+            }
             animateButton(this);
         } else {
             console.error(`Element with ID ${targetId} not found`);
@@ -20,13 +23,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Centipede cursor
 const centipede = document.createElement('div');
 centipede.className = 'centipede';
+for (let i = 0; i < 10; i++) { // Create 10 segments for a longer centipede
+    const segment = document.createElement('div');
+    segment.className = 'centipede-segment';
+    centipede.appendChild(segment);
+}
 document.body.appendChild(centipede);
 
 document.addEventListener('mousemove', (e) => {
-    const x = e.clientX - 10; // Adjust offset to center the centipede
+    const x = e.clientX - 50; // Offset to center the centipede
     const y = e.clientY - 10;
     centipede.style.left = `${x}px`;
     centipede.style.top = `${y}px`;
+    // Add slight rotation for crawling effect
+    const speed = e.movementX || e.movementY ? 1 : 0;
+    centipede.style.transform = `rotate(${speed * 5}deg)`;
 });
 
 // Book turn sound and button animation
