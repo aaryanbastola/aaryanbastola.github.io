@@ -1,198 +1,168 @@
 :root {
-    --main-accent: #00aaff;
-    --main-bg: #fff;
-    --main-dark: #333;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  --main-font-color: #00ffe7; /* Replace with your actual logo font color */
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: var(--main-bg);
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.transparenttextures.com/patterns/smoke-dark.png');
-    background-size: cover;
-    background-attachment: fixed;
-    overflow-x: hidden;
-}
-
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: #000;
-    color: #fff;
-    padding: 8px;
-    z-index: 100;
-    transition: top 0.2s;
-}
-.skip-link:focus {
-    top: 0;
-    outline: 2px solid var(--main-accent);
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #222;
+  color: var(--main-font-color);
+  position: relative;
+  overflow-x: hidden;
 }
 
 header {
-    background: rgba(51, 51, 51, 0.9);
-    color: #fff;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.logo img {
-    width: 100px;
-    height: auto;
-    position: absolute;
-    left: 20px;
-}
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-nav ul li {
-    margin: 0 1rem;
-}
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-nav ul li a:hover {
-    color: var(--main-accent);
+  background: #222;
+  padding: 0;
 }
 
-#home {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: rgba(0, 170, 255, 0.8);
-    color: #fff;
-}
-#home h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-#home p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: var(--main-dark);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: transform 0.3s, background 0.3s;
-}
-.btn:hover {
-    background: #555;
-    transform: rotate(5deg);
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px 0;
 }
 
-#projects {
-    padding: 2rem;
+.nav-link {
+  color: var(--main-font-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.2s;
 }
-#projects h2 {
-    text-align: center;
-    margin-bottom: 2rem;
+
+.nav-link:hover {
+  color: #fff;
 }
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+
+.hero {
+  background: #0eaaf0cc;
+  text-align: center;
+  padding: 60px 20px 80px 20px;
+  color: var(--main-font-color);
+  position: relative;
+  z-index: 2;
 }
+
+.hero h1 {
+  margin-top: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+}
+
+.hero-btn {
+  background: #222;
+  color: var(--main-font-color);
+  border: none;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero-btn:hover {
+  background: var(--main-font-color);
+  color: #222;
+}
+
+.projects-section {
+  background: #444a;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--main-font-color);
+  position: relative;
+  z-index: 2;
+}
+
+.projects-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.projects-grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .project-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    text-align: center;
+  background: #222d;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+  padding: 28px 20px 22px 20px;
+  width: 300px;
+  margin-bottom: 24px;
+  color: #fff;
+  border: 1px solid var(--main-font-color);
+  position: relative;
+  z-index: 2;
 }
+
 .project-card h3 {
-    margin-bottom: 1rem;
-}
-.project-card p {
-    margin-bottom: 1rem;
-}
-.project-card a {
-    color: var(--main-accent);
-    text-decoration: none;
-}
-.project-card a:hover {
-    text-decoration: underline;
+  margin-top: 0;
+  color: var(--main-font-color);
 }
 
-#about {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    text-align: center;
-}
-#about h2 {
-    margin-bottom: 1rem;
+.project-link {
+  color: var(--main-font-color);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 15px;
 }
 
-#contact {
-    padding: 2rem;
-    text-align: center;
+.project-link:hover {
+  text-decoration: underline;
+  color: #fff;
 }
-#contact p {
-    margin: 0.5rem 0;
+
+.about-section, .contact-section {
+  background: #333a;
+  padding: 36px 20px;
+  margin-top: 0;
+  text-align: center;
+  color: var(--main-font-color);
+  position: relative;
+  z-index: 2;
 }
-#contact a {
-    color: var(--main-accent);
-    text-decoration: none;
-}
-#contact a:hover {
-    text-decoration: underline;
+
+.about-section h2, .contact-section h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: var(--main-font-color);
 }
 
 footer {
-    text-align: center;
-    padding: 1rem;
-    background: rgba(51, 51, 51, 0.9);
-    color: #fff;
+  background: #111a;
+  color: var(--main-font-color);
+  text-align: center;
+  padding: 18px 0;
+  font-size: 15px;
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
 }
 
-/* Rocket Cursor */
-.rocket {
-    position: fixed; /* Keep rocket always visible */
-    font-size: 24px;
-    pointer-events: none;
-    z-index: 1000;
-    animation: float 0.5s infinite alternate;
-    left: 0;
-    top: 0;
+a {
+  color: var(--main-font-color);
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-5px); }
+a:hover {
+  color: #fff;
 }
 
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-    #home h1 {
-        font-size: 2rem;
-    }
-    .logo img {
-        width: 80px;
-        left: 10px;
-    }
-    .rocket {
-        font-size: 20px;
-    }
+@media (max-width: 1000px) {
+  .projects-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 }
