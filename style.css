@@ -156,10 +156,10 @@ footer {
 /* Rocket Cursor */
 .rocket {
     position: absolute;
-    font-size: 24px; /* Size of the rocket emoji */
+    font-size: 24px;
     pointer-events: none;
     z-index: 1000;
-    animation: float 0.5s infinite alternate; /* Floating effect */
+    animation: float 0.5s infinite alternate;
 }
 
 @keyframes float {
@@ -183,6 +183,6 @@ footer {
         left: 10px;
     }
     .rocket {
-        font-size: 20px; /* Smaller size on mobile */
+        font-size: 20px;
     }
 }
