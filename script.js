@@ -28,6 +28,7 @@ for (let i = 0; i < 10; i++) {
     centipede.appendChild(segment);
 }
 document.body.appendChild(centipede);
+console.log('Centipede added to body'); // Debug log
 
 document.addEventListener('mousemove', (e) => {
     const x = e.clientX - 40; // Center the centipede
@@ -35,14 +36,15 @@ document.addEventListener('mousemove', (e) => {
     centipede.style.left = `${x}px`;
     centipede.style.top = `${y}px`;
     const speed = Math.sqrt(e.movementX * e.movementX + e.movementY * e.movementY) || 1;
-    centipede.style.transform = `rotate(${speed * 2}deg)`; // Subtle rotation based on movement
+    centipede.style.transform = `rotate(${speed * 2}deg)`; // Subtle rotation
+    console.log('Cursor moved', x, y); // Debug log
 });
 
 // Book turn sound and button animation
 function playBookTurnSound() {
     const audio = new Audio('https://www.soundjay.com/buttons/beep-01a.mp3');
     audio.onerror = () => console.warn('Audio file failed to load');
-    audio.play().catch(() => console.warn('Audio playback failed due to browser restrictions'));
+    audio.play().catch(() => console.warn('Audio playback failed'));
 }
 
 function animateButton(button) {
