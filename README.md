@@ -1,31 +1,40 @@
-# Aaryan Bastola Logo + CV Button
+# Aaryan Bastola Portfolio
 
-This mini project shows your logo centered on the page and a "CV" button in the top-right corner that opens your CV PDF in a new tab.
+This project displays your logo centered on the page, with a "CV" button at the top right that opens your CV in a new tab.
 
-## Setup
+## Files
 
-1. Place these files in your project/repository root:
-    - `logo.html`
-    - `logo.css`
-    - `logo.png` (your logo image)
-    - `cv.pdf` (your CV file)
-2. Open `logo.html` in your browser.
+- `index.html` – Main entry point (uses external CSS and JS)
+- `logo.html` – Alternate HTML sample (direct, minimal)
+- `logo.css` – Styles for logo.html
+- `style.css` – Main stylesheet for index.html
+- `script.js` – Main JS for index.html
+- `cv.pdf` – Your CV file (upload your own)
+- `logo.png` – Your logo image (upload your own)
 
 ## Usage
 
-- The logo appears centered.
-- The "CV" button in the top-right will open your CV (`cv.pdf`) in a new tab.
+1. Place all files in the root of your project/repo.
+2. Replace `logo.png` and `cv.pdf` with your own files.
+3. Open `index.html` in your browser.
 
-## File structure
+## Features
 
+- Responsive design
+- Logo centered
+- "CV" button in top-right corner opens your CV
+
+---
+
+**File structure:**
 ```
-your-project/
+.
+├── README.md
+├── index.html
 ├── logo.html
 ├── logo.css
-├── logo.png
-└── cv.pdf
+├── style.css
+├── script.js
+├── cv.pdf
+└── logo.png
 ```
-
-## License
-
-This logo is owned by Aaryan Bastola. Usage is permitted for personal branding and portfolio purposes.
