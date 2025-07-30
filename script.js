@@ -19,24 +19,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Centipede cursor
-const centipede = document.createElement('div');
-centipede.className = 'centipede';
-for (let i = 0; i < 10; i++) {
-    const segment = document.createElement('div');
-    segment.className = 'centipede-segment';
-    centipede.appendChild(segment);
-}
-document.body.appendChild(centipede);
-console.log('Centipede added to body'); // Debug log
+// Rocket cursor
+const rocket = document.createElement('div');
+rocket.className = 'rocket';
+rocket.textContent = '🚀'; // Rocket emoji
+document.body.appendChild(rocket);
+console.log('Rocket added to body'); // Debug log
 
 document.addEventListener('mousemove', (e) => {
-    const x = e.clientX - 40; // Center the centipede
-    const y = e.clientY - 10;
-    centipede.style.left = `${x}px`;
-    centipede.style.top = `${y}px`;
-    const speed = Math.sqrt(e.movementX * e.movementX + e.movementY * e.movementY) || 1;
-    centipede.style.transform = `rotate(${speed * 2}deg)`; // Subtle rotation
+    const x = e.clientX - 12; // Center the rocket (half of font-size 24px)
+    const y = e.clientY - 12;
+    rocket.style.left = `${x}px`;
+    rocket.style.top = `${y}px`;
     console.log('Cursor moved', x, y); // Debug log
 });
 
