@@ -7,9 +7,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        playBookTurnSound();
-        animateButton(this);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+            playBookTurnSound();
+            animateButton(this);
+        } else {
+            console.error(`Element with ID ${targetId} not found`);
+        }
     });
 });
 
@@ -28,12 +32,15 @@ document.addEventListener('mousemove', (e) => {
 // Book turn sound and button animation
 function playBookTurnSound() {
     const audio = new Audio('https://www.soundjay.com/buttons/beep-01a.mp3');
-    audio.play();
+    audio.onerror = () => console.warn('Audio file failed to load');
+    audio.play().catch(() => console.warn('Audio playback failed due to browser restrictions'));
 }
 
 function animateButton(button) {
-    button.style.transform = 'rotate(360deg)';
-    setTimeout(() => {
-        button.style.transform = 'rotate(0deg)';
-    }, 300);
+    if (button) {
+        button.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            button.style.transform = 'rotate(0deg)';
+        }, 300);
+    }
 }
