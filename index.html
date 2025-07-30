@@ -1,75 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Aaryan Bastola, a web developer passionate about cybersecurity and ethical hacking.">
-    <title>Aaryan Bastola - Portfolio</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <title>Aaryan Bastola Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-
-    <header>
-        <div class="logo">
-            <img src="./images/logo.png" alt="Aaryan Bastola Logo" onerror="this.style.display='none';">
-        </div>
-        <nav aria-label="Main navigation">
-            <ul>
-                <li><a href="#home" aria-label="Go to home section">Home</a></li>
-                <li><a href="#projects" aria-label="Go to projects section">Projects</a></li>
-                <li><a href="#about" aria-label="Go to about section">About</a></li>
-                <li><a href="#contact" aria-label="Go to contact section">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main id="main-content" role="main">
-        <section id="home">
-            <h1>Hi, I'm Aaryan Bastola</h1>
-            <p>A web developer passionate about cybersecurity and ethical hacking.</p>
-            <a href="#projects" class="btn" data-no-sound>See My Work</a>
-        </section>
-
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Interactive Language Learning Tutor</h3>
-                    <p>A web-based language learning application featuring interactive conversations, picture challenges, quizzes, and progress tracking for multiple languages like Spanish, French, and German.</p>
-                    <a href="https://claude.ai/public/artifacts/346a5a8e-76d6-47e7-bceb-cf390ce94881" target="_blank" rel="noopener noreferrer">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>A cybersecurity tool developed using Python for [specific purpose].</p>
-                    <a href="https://github.com/aaryanbastola/project2" target="_blank" rel="noopener noreferrer">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>An ethical hacking project involving [specific technique or tool].</p>
-                    <a href="https://github.com/aaryanbastola/project3" target="_blank" rel="noopener noreferrer">View Project</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I'm a web developer with 1 year of experience in building responsive websites and a strong interest in cybersecurity and ethical hacking. I enjoy solving complex problems and learning new technologies.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener noreferrer">aaryanbastola</a></p>
-            <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener noreferrer">aaryanbastola</a></p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; <span id="year">2025</span> Aaryan Bastola. All rights reserved.</p>
-    </footer>
-
-    <script src="./script.js"></script>
-    <noscript><style>.skip-link{top:0;left:0;}</style><div style="background: #222; color: #fff; padding: 1em; text-align:center;">Please enable JavaScript for full site functionality.</div></noscript>
+  <div class="cv-btn-container">
+    <button class="cv-btn" id="cvBtn">CV</button>
+  </div>
+  <nav class="main-nav">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <div class="logo-container" id="home">
+    <img src="logo.png" alt="Aaryan Bastola Logo" class="logo-img" />
+  </div>
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <p>Your projects go here.</p>
+  </section>
+  <section id="about" class="section">
+    <h2>About</h2>
+    <p>About you goes here.</p>
+  </section>
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Contact info goes here.</p>
+  </section>
+  <script src="script.js"></script>
 </body>
 </html>
