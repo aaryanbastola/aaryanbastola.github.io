@@ -1,52 +1,33 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Update footer year dynamically
-    const yearElem = document.getElementById('year');
-    if (yearElem) {
-        yearElem.textContent = new Date().getFullYear();
-    }
+const apiKey = "YOUR_API_KEY_HERE"; // <-- Replace with your OpenWeatherMap API key
 
-    // Smooth scrolling for navigation links, but skip the skip-link
-    document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-                if (!this.hasAttribute('data-no-sound')) {
-                    playBookTurnSound();
-                }
-                animateButton(this);
-            }
-        });
-    });
-
-    // Rocket cursor
-    const rocket = document.createElement('div');
-    rocket.className = 'rocket';
-    rocket.textContent = '🚀';
-    document.body.appendChild(rocket);
-
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX - 12; // Center the rocket (half of font-size 24px)
-        const y = e.clientY - 12;
-        rocket.style.left = `${x}px`;
-        rocket.style.top = `${y}px`;
-    });
-
-    // Book turn sound and button animation
-    function playBookTurnSound() {
-        const audio = new Audio('https://www.soundjay.com/buttons/beep-01a.mp3');
-        audio.onerror = () => {};
-        audio.play().catch(() => {});
-    }
-
-    function animateButton(button) {
-        if (button) {
-            button.style.transform = 'rotate(360deg)';
-            setTimeout(() => {
-                button.style.transform = 'rotate(0deg)';
-            }, 300);
-        }
-    }
+document.getElementById('searchForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const city = document.getElementById('cityInput').value.trim();
+  if (!city) return;
+  fetchWeather(city);
 });
+
+async function fetchWeather(city) {
+  const weatherDiv = document.getElementById('weatherResult');
+  weatherDiv.innerHTML = "Loading...";
+  weatherDiv.classList.remove('hidden');
+
+  try {
+    const res = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`
+    );
+    if (!res.ok) throw new Error("City not found.");
+    const data = await res.json();
+
+    weatherDiv.innerHTML = `
+      <img class="weather-icon" src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="icon">
+      <div class="city-name">${data.name}, ${data.sys.country}</div>
+      <div class="temp">${Math.round(data.main.temp)}°C</div>
+      <div class="desc">${data.weather[0].description}</div>
+      <div class="extra">Humidity: ${data.main.humidity}%</div>
+      <div class="extra">Wind: ${data.wind.speed} m/s</div>
+    `;
+  } catch (err) {
+    weatherDiv.innerHTML = `<span style="color:#ff7878;">${err.message}</span>`;
+  }
+}
