@@ -4,56 +4,86 @@
   <meta charset="UTF-8">
   <title>Aaryan Bastola Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
+  <header class="main-header">
+    <div class="container header-flex">
+      <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo">
+      <nav>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <section id="home" class="hero">
-      <h1>Hi, I'm Aaryan Bastola</h1>
-      <p class="subtitle">A web developer passionate about cybersecurity and ethical hacking.</p>
-      <button class="hero-btn" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'});">See My Work</button>
-    </section>
-    <section id="projects" class="projects-section">
-      <h2>My Projects</h2>
+
+  <section class="hero-section" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
+        <p class="tagline">Web Developer • Cybersecurity & Ethical Hacking Enthusiast</p>
+        <a href="#projects" class="cta-btn">View My Projects</a>
+      </div>
+      <div class="hero-logo">
+        <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo">
+      </div>
+    </div>
+    <div class="smoke-bg"></div>
+  </section>
+
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
       <div class="projects-grid">
-        <div class="project-card">
-          <h3>Interactive Language Learning Tutor</h3>
-          <p>A web-based language learning application featuring interactive conversations, picture challenges, quizzes, and progress tracking for multiple languages like Spanish, French, and German.</p>
-          <a href="#" class="project-link">View Project</a>
+        <!-- Project 1 -->
+        <div class="project-card wow fadeInUp">
+          <img src="projects/lang-tutor.png" alt="Language Tutor" class="project-thumb">
+          <div class="project-info">
+            <h3>Interactive Language Learning Tutor</h3>
+            <p>A web-based language learning app featuring interactive conversations, quizzes, and progress tracking for multiple languages.</p>
+            <a href="#" class="project-link" target="_blank">View Project</a>
+          </div>
         </div>
-        <div class="project-card">
-          <h3>Project 2</h3>
-          <p>A cybersecurity tool developed using Python for [specific purpose].</p>
-          <a href="#" class="project-link">View Project</a>
+        <!-- Project 2 -->
+        <div class="project-card wow fadeInUp" data-wow-delay="0.2s">
+          <img src="projects/cyber-tool.png" alt="Cybersecurity Tool" class="project-thumb">
+          <div class="project-info">
+            <h3>Project 2</h3>
+            <p>A cybersecurity tool developed using Python for [specific purpose].</p>
+            <a href="#" class="project-link" target="_blank">View Project</a>
+          </div>
         </div>
-        <div class="project-card">
-          <h3>Project 3</h3>
-          <p>An ethical hacking project involving [specific technique or tool].</p>
-          <a href="#" class="project-link">View Project</a>
+        <!-- Project 3 -->
+        <div class="project-card wow fadeInUp" data-wow-delay="0.4s">
+          <img src="projects/hacking-project.png" alt="Ethical Hacking" class="project-thumb">
+          <div class="project-info">
+            <h3>Project 3</h3>
+            <p>An ethical hacking project involving [specific technique or tool].</p>
+            <a href="#" class="project-link" target="_blank">View Project</a>
+          </div>
         </div>
       </div>
-    </section>
-    <section id="about" class="about-section">
-      <h2>About Me</h2>
-      <p>I'm a web developer with 1 year of experience in building responsive websites and a strong interest in cybersecurity and ethical hacking. I enjoy solving complex problems and learning new technologies.</p>
-    </section>
-    <section id="contact" class="contact-section">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank">aaryanbastola</a></p>
-      <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank">aaryanbastola</a></p>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank">aaryanbastola</a></p>
+        <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank">aaryanbastola</a></p>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>© 2025 Aaryan Bastola. All rights reserved.</p>
+    <div class="container">
+      <p>© 2025 Aaryan Bastola. All rights reserved.</p>
+    </div>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
