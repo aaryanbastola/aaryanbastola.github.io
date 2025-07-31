@@ -41,30 +41,45 @@ body {
 }
 
 .site-logo {
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   background: #000;
   border: 2px solid var(--accent);
+  object-fit: cover;
 }
 
 nav {
   display: flex;
-  gap: 32px;
+  gap: 64px;
 }
 
 .nav-link {
   color: var(--text);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 28px;
   padding: 6px 16px;
   border-radius: 6px;
   transition: background 0.2s, color 0.2s;
   font-weight: 600;
+  display: inline-block;
 }
 .nav-link:hover, .nav-link.active {
   background: var(--accent);
   color: var(--btn-text);
+}
+
+.cv-link {
+  border: 2px solid var(--accent);
+  background: transparent;
+  margin-left: 12px;
+  font-size: 28px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.cv-link:hover {
+  background: var(--accent);
+  color: var(--btn-text);
+  border: 2px solid #fff;
 }
 
 .hero-section {
@@ -141,6 +156,7 @@ nav {
   box-shadow: 0 0 60px #e0b95b20;
   background: #000;
   border: 2px solid var(--accent);
+  object-fit: cover;
 }
 
 .projects-section {
@@ -263,6 +279,12 @@ footer {
     padding: 0;
     min-width: 0;
   }
+  nav {
+    gap: 36px;
+  }
+  .nav-link, .cv-link {
+    font-size: 21px;
+  }
 }
 @media (max-width: 600px) {
   .container {
@@ -276,5 +298,12 @@ footer {
   }
   .contact-info {
     padding: 20px 7vw;
+  }
+  .site-logo {
+    height: 48px;
+    width: 48px;
+  }
+  nav {
+    gap: 16px;
   }
 }
