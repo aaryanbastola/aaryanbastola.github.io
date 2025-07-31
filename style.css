@@ -1,171 +1,100 @@
-:root {
-  --main-font-color: #00ffe7; /* Replace this with your logo's font color if needed */
-}
-
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #444;
-  color: var(--main-font-color);
-  position: relative;
-  overflow-x: hidden;
-}
-
-header {
-  background: #333;
   padding: 0;
-}
-
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  padding: 20px 0;
-}
-
-.nav-link {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: color 0.2s;
-}
-
-.nav-link:hover {
-  color: var(--main-font-color);
-}
-
-.hero {
-  background: #0eaaf0;
-  text-align: center;
-  padding: 60px 20px 80px 20px;
-  color: #fff;
-  position: relative;
-  z-index: 2;
-}
-
-.hero h1 {
-  margin-top: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--main-font-color);
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 32px;
-}
-
-.hero-btn {
+  font-family: 'Segoe UI', Arial, sans-serif;
   background: #222;
-  color: var(--main-font-color);
-  border: none;
-  padding: 14px 30px;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.dashboard {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #333b;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+  padding: 32px 28px 24px 28px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 18px;
+  color: #00ffe7;
+}
+
+form {
+  margin-bottom: 22px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+#cityInput {
+  padding: 8px 12px;
   border-radius: 6px;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  border: 1px solid #00ffe7;
+  outline: none;
+  font-size: 17px;
+  width: 160px;
 }
 
-.hero-btn:hover {
-  background: var(--main-font-color);
+button[type="submit"] {
+  background: #00ffe7;
   color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.projects-section {
-  background: #444;
-  padding: 40px 20px;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  z-index: 2;
-}
-
-.projects-section h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: var(--main-font-color);
-}
-
-.projects-grid {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.project-card {
-  background: #555;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
-  padding: 28px 20px 22px 20px;
-  width: 300px;
-  margin-bottom: 24px;
-  color: #fff;
-  border: 1px solid var(--main-font-color);
-  position: relative;
-  z-index: 2;
-  text-align: left;
-}
-
-.project-card h3 {
-  margin-top: 0;
-  color: var(--main-font-color);
-}
-
-.project-link {
-  color: var(--main-font-color);
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 15px;
-}
-
-.project-link:hover {
-  text-decoration: underline;
+button[type="submit"]:hover {
+  background: #00bbaa;
   color: #fff;
 }
 
-.about-section, .contact-section {
-  background: #555;
-  padding: 36px 20px;
-  margin-top: 0;
-  text-align: center;
+.weather-card {
+  margin-top: 18px;
+  background: #222d;
+  border-radius: 10px;
+  padding: 18px 10px;
+  min-height: 130px;
+}
+
+.weather-card.hidden {
+  display: none;
+}
+
+.weather-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 6px;
+}
+
+.city-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ffe7;
+  margin-bottom: 6px;
+}
+
+.temp {
+  font-size: 2.1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  margin-bottom: 10px;
   color: #fff;
-  position: relative;
-  z-index: 2;
 }
 
-.about-section h2, .contact-section h2 {
-  margin-top: 0;
-  font-size: 2rem;
-  color: var(--main-font-color);
-}
-
-footer {
-  background: #222;
-  color: var(--main-font-color);
-  text-align: center;
-  padding: 18px 0;
-  font-size: 15px;
-  margin-top: 0;
-  position: relative;
-  z-index: 2;
-}
-
-a {
-  color: var(--main-font-color);
-}
-
-a:hover {
-  color: #fff;
-}
-
-@media (max-width: 1000px) {
-  .projects-grid {
-    flex-direction: column;
-    align-items: center;
-  }
+.extra {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 2px;
 }
