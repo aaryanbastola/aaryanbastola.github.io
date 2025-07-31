@@ -1,0 +1,14 @@
+.smoke-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 80% 30%, #e0b95b18 0%, transparent 70%), 
+              radial-gradient(ellipse at 20% 90%, #e0b95b0a 0%, transparent 80%);
+  animation: smokemove 22s linear infinite alternate;
+}
+@keyframes smokemove {
+  0% { background-position: 0px 0px, 0px 0px; }
+  100% { background-position: 120px 35px, -60px 70px; }
+}
