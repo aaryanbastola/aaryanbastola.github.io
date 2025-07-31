@@ -4,7 +4,7 @@ This project displays your logo centered on the page, with a "CV" button at the 
 
 ## Files
 
-- `index.html` – Main entry point (uses external CSS and JS)
+- `index.html` – Main entry point (uses external CSS and JS, with navigation, logo, and CV button)
 - `logo.html` – Alternate HTML sample (direct, minimal)
 - `logo.css` – Styles for logo.html
 - `style.css` – Main stylesheet for index.html
@@ -23,6 +23,7 @@ This project displays your logo centered on the page, with a "CV" button at the 
 - Responsive design
 - Logo centered
 - "CV" button in top-right corner opens your CV
+- Navigation with no beep/jump
 
 ---
 
