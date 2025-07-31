@@ -169,7 +169,7 @@ nav {
   box-shadow: 0 8px 32px #0007;
   border: 1.5px solid var(--border);
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.8s;
   will-change: transform;
   opacity: 0;
   transform: translateY(40px);
