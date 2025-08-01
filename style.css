@@ -18,7 +18,7 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -34,17 +34,24 @@ body {
   align-items: center;
 }
 
+.site-logo {
+  height: 40px;
+}
+
 .nav-link {
   margin: 0 10px;
   text-decoration: none;
   color: inherit;
+  font-weight: 600;
 }
 
 #theme-toggle {
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   cursor: pointer;
+  margin-left: 10px;
+  color: inherit;
 }
 
 .hero-section {
@@ -52,6 +59,10 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 60px 20px;
+}
+
+.hero-text {
+  max-width: 600px;
 }
 
 .highlight {
@@ -66,6 +77,12 @@ body {
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #009bbf;
 }
 
 .skills-grid, .projects-grid {
@@ -85,12 +102,14 @@ body {
   height: 10px;
   border-radius: 5px;
   margin: 5px 0;
+  overflow: hidden;
 }
 
 .bar-fill {
   background: var(--accent);
   height: 100%;
   border-radius: 5px;
+  transition: width 0.5s ease-in-out;
 }
 
 .project-card {
@@ -99,6 +118,21 @@ body {
   border-radius: 8px;
 }
 
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in animations */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -108,4 +142,23 @@ body {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Typewriter effect */
+.typewriter {
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-height: 1.5em;
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-logo {
+    margin-top: 20px;
+  }
 }
