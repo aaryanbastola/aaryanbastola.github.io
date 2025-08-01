@@ -3,53 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <title>Aaryan Bastola Portfolio</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="smoke.css">
   <link rel="icon" href="logo.png" type="image/png">
   <style>
-    /* Programs section effects, inspired by mitnepal.edu.np */
+    /* General Styles */
+    body { margin:0; font-family: 'Segoe UI', Arial, sans-serif; background: #fafaff; color:#262626;}
+    .container { max-width: 1100px; margin:0 auto; padding:0 20px;}
+    .main-header { background: #fff; box-shadow:0 2px 16px rgba(0,0,0,.06);}
+    .header-flex { display: flex; align-items:center; justify-content:space-between; padding: 18px 0;}
+    .site-logo { width:48px; height:48px; border-radius:50%; }
+    nav .nav-link { margin:0 12px; text-decoration:none; color:#222; font-weight: 500;}
+    nav .nav-link.cv-link { background:#4169e1; color:#fff; padding:7px 16px; border-radius:6px; transition:background .2s;}
+    nav .nav-link.cv-link:hover { background:#1a237e; }
+
+    /* Hero Section */
+    .hero-section { background: linear-gradient(135deg,#e9defa 0%,#cfd9ff 100%); padding: 64px 0 48px 0;}
+    .hero-content { display:flex; align-items:center; justify-content:space-between; gap:32px;}
+    .hero-text h1 { font-size:2.4rem; margin-bottom:10px; }
+    .hero-text .highlight { color:#4169e1;}
+    .hero-text .tagline { font-size:1.1rem; color:#555; margin-bottom:22px;}
+    .cta-btn { display:inline-block; background:#4169e1; color:#fff; padding:10px 28px; border-radius:8px; text-decoration:none; font-weight:600;}
+    .hero-logo .main-logo { width:120px; border-radius:50%; box-shadow:0 2px 12px rgba(65,105,225,.19);}
+    @media (max-width:700px){.hero-content{flex-direction:column; text-align:center;}.hero-logo{margin-top:24px;}}
+
+    /* Gradient Animation for Programs Section */
+    @keyframes borderGradient {
+      0% { border-color: #6a82fb; }
+      33% { border-color: #fc5c7d; }
+      66% { border-color: #43cea2; }
+      100% { border-color: #6a82fb; }
+    }
     .programs-section {
       background: #f9f9f9;
-      padding: 40px 0 20px 0;
+      padding: 48px 0 24px 0;
     }
     .programs-grid {
       display: flex;
-      gap: 2rem;
+      gap: 2.2rem;
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 24px;
     }
     .program-card {
       background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.04);
-      padding: 32px 28px;
+      border-radius: 28px;
+      box-shadow: 0 6px 24px rgba(65,105,225,.07), 0 1.5px 4px rgba(0,0,0,0.04);
+      padding: 38px 28px 30px 28px;
       width: 290px;
       text-align: center;
+      border: 4px solid #6a82fb;
+      animation: borderGradient 6s linear infinite;
       transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
       cursor: pointer;
       position: relative;
       overflow: hidden;
     }
     .program-card:hover {
-      transform: translateY(-12px) scale(1.03);
-      box-shadow: 0 18px 40px rgba(65,105,225,0.15), 0 2px 8px rgba(0,0,0,0.13);
-      background: linear-gradient(120deg, #cfd9ff 0%, #e9defa 100%);
+      transform: translateY(-12px) scale(1.045) rotate(-0.5deg);
+      box-shadow: 0 20px 48px rgba(65,105,225,0.16), 0 2px 8px rgba(0,0,0,0.11);
+      border-width: 4.5px;
     }
     .program-icon {
-      font-size: 42px;
-      margin-bottom: 10px;
-      color: #4169e1;
-      transition: color 0.3s;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 56px;
     }
-    .program-card:hover .program-icon {
-      color: #1a237e;
-    }
+    /* Custom SVG icon scaling */
+    .program-icon svg { width:48px; height:48px; }
     .program-title {
-      font-size: 1.25rem;
+      font-size: 1.19rem;
       font-weight: 600;
       color: #222;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       letter-spacing: .5px;
     }
     .program-desc {
@@ -57,10 +84,37 @@
       color: #555;
       margin-bottom: 0;
     }
-    /* Responsive for programs section */
     @media (max-width: 900px) {
       .programs-grid { flex-direction: column; align-items: center; }
     }
+
+    /* Projects Section */
+    .projects-section { padding: 48px 0 24px 0;}
+    .projects-grid {
+      display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;
+    }
+    .project-card {
+      background:#fff; border-radius:18px;box-shadow:0 4px 18px rgba(65,105,225,.08);
+      padding:28px 22px 18px 22px; width:270px;
+      display:flex;flex-direction:column;align-items:center;
+      transition: transform .23s, box-shadow .23s;
+    }
+    .project-card:hover {
+      transform: translateY(-9px) scale(1.035);box-shadow:0 14px 36px rgba(65,105,225,0.14);
+    }
+    .project-card img {margin-bottom:10px;}
+    .project-link {margin-top:10px; color:#4169e1; font-weight:600;text-decoration:none;}
+    .project-link:hover {text-decoration:underline;}
+    .section-title{font-size:2rem; margin-bottom:20px; color:#222;font-weight:700;letter-spacing:.7px;}
+
+    /* Contact Section */
+    .contact-section { padding: 42px 0 24px 0;}
+    .contact-info { font-size: 1.07rem; color:#333;}
+    .contact-info a { color: #4169e1; text-decoration:none;}
+    .contact-info a:hover { text-decoration:underline;}
+
+    /* Footer */
+    footer { background:#f0f3ff; color:#222;padding:16px 0; text-align:center; margin-top:24px;}
   </style>
 </head>
 <body>
@@ -97,17 +151,26 @@
       <h2 class="section-title">Programs We Offer</h2>
       <div class="programs-grid">
         <div class="program-card">
-          <div class="program-icon">💻</div>
+          <div class="program-icon">
+            <!-- SVG: Laptop (CSIT) -->
+            <svg fill="none" viewBox="0 0 48 48"><rect x="8" y="12" width="32" height="20" rx="3" fill="#4169e1" opacity="0.14"/><rect x="8" y="12" width="32" height="20" rx="3" stroke="#4169e1" stroke-width="2"/><rect x="12" y="16" width="24" height="12" rx="1.5" fill="#4169e1" /><rect x="21" y="33" width="6" height="2" rx="1" fill="#4169e1"/></svg>
+          </div>
           <div class="program-title">BSc CSIT</div>
           <div class="program-desc">Bachelor of Science in Computer Science and Information Technology – develop programming, software, and IT skills with a modern curriculum.</div>
         </div>
         <div class="program-card">
-          <div class="program-icon">🌐</div>
+          <div class="program-icon">
+            <!-- SVG: Globe (BIT) -->
+            <svg fill="none" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="#4169e1" opacity="0.13"/><circle cx="24" cy="24" r="16" stroke="#4169e1" stroke-width="2"/><ellipse cx="24" cy="24" rx="9" ry="16" stroke="#4169e1" stroke-width="2"/><line x1="8" y1="24" x2="40" y2="24" stroke="#4169e1" stroke-width="2"/><line x1="24" y1="8" x2="24" y2="40" stroke="#4169e1" stroke-width="2"/></svg>
+          </div>
           <div class="program-title">BIT</div>
           <div class="program-desc">Bachelor of Information Technology – blend of computer science and business, focused on software, networking, and web technologies.</div>
         </div>
         <div class="program-card">
-          <div class="program-icon">🖥️</div>
+          <div class="program-icon">
+            <!-- SVG: Monitor (BCA) -->
+            <svg fill="none" viewBox="0 0 48 48"><rect x="10" y="14" width="28" height="16" rx="2" fill="#4169e1" opacity="0.13"/><rect x="10" y="14" width="28" height="16" rx="2" stroke="#4169e1" stroke-width="2"/><rect x="19" y="32" width="10" height="2" rx="1" fill="#4169e1"/><rect x="22" y="36" width="4" height="2" rx="1" fill="#4169e1"/></svg>
+          </div>
           <div class="program-title">BCA</div>
           <div class="program-desc">Bachelor of Computer Applications – practical and theoretical foundation in computer applications, programming, and software development.</div>
         </div>
@@ -119,25 +182,21 @@
     <div class="container">
       <h2 class="section-title">My Projects</h2>
       <div class="projects-grid">
-        <!-- Project 1 -->
         <div class="project-card">
           <h3>AI Writing Artifact</h3>
           <p>A showcase of advanced AI-generated writing, demonstrating language understanding and creative composition.</p>
           <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" class="project-link">View Project</a>
         </div>
-        <!-- Project 2 -->
         <div class="project-card">
           <h3>Claude Artifact 2</h3>
           <p>An example of AI-powered text generation, focusing on clarity and practical applications of large language models.</p>
           <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" class="project-link">View Project</a>
         </div>
-        <!-- Project 3 -->
         <div class="project-card">
           <h3>Claude Artifact 3</h3>
           <p>Exploring sophisticated text synthesis and reasoning, this artifact highlights cutting-edge generative AI capabilities.</p>
           <a href="https://claude.ai/public/artifacts/85836101-4137-4987-ad2c-9fbf0fd2001d" target="_blank" class="project-link">View Project</a>
         </div>
-        <!-- Project 4 (Inspired by mitnepal.edu.np) -->
         <div class="project-card">
           <h3>MIT Nepal Website Redesign</h3>
           <img src="https://mitnepal.edu.np/images/logo.png" alt="MIT Nepal Logo" style="width: 100px; height: auto; margin-bottom:10px;">
