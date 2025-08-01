@@ -7,27 +7,39 @@
   --shadow: 0 6px 32px rgba(65,105,225,0.10), 0 1.5px 8px rgba(0,0,0,0.07);
   --font-main: 'Segoe UI', Arial, sans-serif;
   --font-dark: 'Fira Mono', 'Consolas', monospace;
+  --skills-section-bg: #f9f9f9;
+  --skill-bg: #ececec;
+  --bar-fill: #4169e1;
 }
 
-body {
-  background: var(--main-bg);
-  color: var(--main-color);
-  font-family: var(--font-main);
-  transition: background .3s, color .3s, font-family .3s;
+/* Animated Background */
+.hero-bg-waves {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 330px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.waves {
+  width: 100vw;
+  min-width: 100%;
+  height: 330px;
+  display: block;
 }
 
 /* Hero Card */
 .hero-card {
   max-width: 640px;
-  margin: 60px auto 0 auto;
+  margin: 70px auto 40px auto;
   background: var(--card-bg);
   border-radius: var(--card-radius);
   box-shadow: var(--shadow);
-  padding: 48px 32px;
+  padding: 48px 32px 40px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  z-index: 2;
   transition: background .3s, box-shadow .3s;
 }
 
@@ -101,29 +113,75 @@ body {
   .hero-content h1 {
     font-size: 1.5rem;
   }
+  .hero-bg-waves, .waves {
+    height: 170px;
+    min-height: 170px;
+    max-height: 180px;
+  }
 }
 
-/* DARK MODE STYLES */
+/* --- Skills Section --- */
+.skills-section {
+  background: var(--skills-section-bg);
+  padding: 42px 0 24px 0;
+}
+.skills-grid {
+  display: flex;
+  flex-wrap:wrap;
+  gap: 1.5rem;
+}
+.skill-bar {
+  width:220px;
+  background: var(--card-bg);
+  border-radius:10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.skill-title {
+  font-weight:600;
+  display: block;
+}
+.bar-bg {
+  width:100%;
+  height:11px;
+  background:var(--skill-bg);
+  border-radius:8px;
+  margin:6px 0;
+}
+.bar-fill {
+  height:11px;
+  background: var(--bar-fill);
+  border-radius:8px;
+  transition: width 1.5s;
+}
+.skill-level {
+  font-size: 0.94rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+@media (max-width: 900px) {
+  .skills-grid { flex-direction: column; align-items: center; }
+}
+
+/* ---- DARK MODE ---- */
 body.dark-mode {
   --main-bg: #191b22;
   --main-color: #f7f7fc;
   --card-bg: #23263a;
   --accent: #82aaff;
   --font-main: var(--font-dark);
+  --skills-section-bg: #23263a;
+  --skill-bg: #222836;
+  --bar-fill: #82aaff;
 }
-
 body.dark-mode {
   font-family: var(--font-dark);
 }
-
 body.dark-mode .tagline {
   color: #bdbdbd;
 }
-
 body.dark-mode .cta-btn.secondary {
   background: #29324a;
   color: var(--accent);
 }
-
-/* ---- Rest of your site styles (skills, projects, github, contact, footer) ---- */
-/* ... Paste your other CSS sections here as needed ... */
