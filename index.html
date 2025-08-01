@@ -7,7 +7,44 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="smoke.css">
   <link rel="icon" href="logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    /* Loading Spinner */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0f0f0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 6px solid #333;
+      border-top: 6px solid #00bcd4;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    body.loaded {
+      animation: fadeInBody 1s ease forwards;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -38,6 +75,11 @@
   </style>
 </head>
 <body>
+  <!-- Loading Spinner -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
   <!-- Header -->
   <header class="main-header">
     <div class="container header-flex">
@@ -123,14 +165,21 @@
     <div class="container">
       <h2 class="section-title">Contact Me</h2>
       <div class="contact-info">
-        <p>Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener">aaryanbastola</a></p>
-        <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener">aaryanbastola</a></p>
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener">aaryanbastola</a></p>
+        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener">aaryanbastola</a></p>
       </div>
     </div>
   </section>
 
   <!-- Scripts -->
   <script src="script.js" defer></script>
+  <script>
+    // Loader fade-out
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.display = 'none';
+      document.body.classList.add('loaded');
+    });
+  </script>
 </body>
 </html>
