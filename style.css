@@ -33,7 +33,6 @@ nav .nav-link.cv-link:hover { background:#1a237e; }
 .project-card:hover {
   transform: translateY(-9px) scale(1.035);box-shadow:0 14px 36px rgba(65,105,225,0.14);
 }
-.project-card img {margin-bottom:10px;}
 .project-link {margin-top:10px; color:#4169e1; font-weight:600;text-decoration:none;}
 .project-link:hover {text-decoration:underline;}
 .section-title{font-size:2rem; margin-bottom:20px; color:#222;font-weight:700;letter-spacing:.7px;}
