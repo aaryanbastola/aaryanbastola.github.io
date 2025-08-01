@@ -4,6 +4,8 @@
   --text-dark: #ffffff;
   --text-light: #000000;
   --accent: #00bcd4;
+  --parallax-speed1: 0.4;
+  --parallax-speed2: 0.2;
 }
 
 [data-theme="dark"] {
@@ -20,22 +22,73 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
+/* Parallax Background */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-shape {
+  position: absolute;
+  filter: blur(40px);
+  user-select: none;
+  will-change: transform;
+}
+
+.shape1 {
+  top: -150px;
+  left: -150px;
+  width: 600px;
+  height: 600px;
+}
+
+.shape2 {
+  bottom: -200px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+}
+
+/* Container helper */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 20px;
+  position: relative; /* To keep content above background */
+  z-index: 1;
 }
 
+/* Header */
 .header-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .site-logo {
   height: 40px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.site-logo:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  transform: scale(1.05);
 }
 
 .nav-link {
@@ -55,6 +108,25 @@ body {
   transition: color 0.3s ease;
 }
 
+.resume-btn {
+  padding: 8px 15px;
+  background: var(--accent);
+  color: white;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.resume-btn:hover,
+.resume-btn:focus {
+  background-color: #009bbf;
+  outline: none;
+}
+
+/* Hero Section */
 .hero-section {
   display: flex;
   justify-content: space-between;
@@ -91,6 +163,19 @@ body {
   outline: none;
 }
 
+.hero-logo {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-logo {
+  max-width: 200px;
+  user-select: none;
+}
+
+/* Skills and Projects */
 .skills-grid,
 .projects-grid {
   display: grid;
@@ -98,6 +183,7 @@ body {
   gap: 20px;
 }
 
+/* Skill Bar */
 .skill-bar {
   background: rgba(0, 0, 0, 0.05);
   padding: 10px;
@@ -116,9 +202,11 @@ body {
   background: var(--accent);
   height: 100%;
   border-radius: 5px;
-  transition: width 0.5s ease-in-out;
+  width: 0; /* Start at zero for animation */
+  transition: width 1.2s ease-in-out;
 }
 
+/* Project Card */
 .project-card {
   background: rgba(0, 0, 0, 0.05);
   padding: 20px;
@@ -142,7 +230,7 @@ body {
   outline: none;
 }
 
-/* Fade-in animations */
+/* Fade-in animation */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -159,6 +247,45 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
   min-height: 1.5em;
+}
+
+/* Easter Egg dialog styling */
+dialog#easter-egg {
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  border: none;
+  max-width: 300px;
+  width: 80vw;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+[data-theme="dark"] dialog#easter-egg {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+#easter-egg h3 {
+  margin-top: 0;
+}
+
+#egg-close {
+  margin-top: 1rem;
+  padding: 8px 15px;
+  background: var(--accent);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#egg-close:hover,
+#egg-close:focus {
+  background-color: #009bbf;
+  outline: none;
 }
 
 /* Responsive adjustments */
