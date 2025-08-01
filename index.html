@@ -5,36 +5,35 @@
   <title>Aaryan Bastola Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="smoke.css">
   <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
-  <header class="main-header">
-    <div class="container header-flex">
-      <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo">
-      <nav>
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="cv.pdf" class="nav-link cv-link" target="_blank">CV</a>
-        <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero-section" id="home">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
-        <p class="typewriter" id="typewriter"></p>
-        <a href="#projects" class="cta-btn">View My Projects</a>
+  <!-- Animated SVG Waves Background -->
+  <div class="hero-bg-waves">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path id="wave1" fill="#4169e1" fill-opacity="0.2"
+        d="M0,192L80,165.3C160,139,320,85,480,74.7C640,64,800,96,960,128C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
+          values="
+            M0,192L80,165.3C160,139,320,85,480,74.7C640,64,800,96,960,128C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z;
+            M0,192L80,210C160,228,320,260,480,224C640,188,800,92,960,96C1120,100,1280,204,1360,236L1440,268L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z;
+            M0,192L80,165.3C160,139,320,85,480,74.7C640,64,800,96,960,128C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z
+          " />
+      </path>
+    </svg>
+  </div>
+  <!-- Hero Section as Elevated Card -->
+  <section class="hero-card" id="home">
+    <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+    <div class="hero-content">
+      <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
+      <p class="tagline">Web Developer • Cybersecurity & Ethical Hacking Enthusiast</p>
+      <div class="cta-group">
+        <a href="cv.pdf" class="cta-btn" download>Download CV</a>
+        <a href="#projects" class="cta-btn secondary">View Projects</a>
+        <a href="#contact" class="cta-btn secondary">Contact Me</a>
       </div>
-      <div class="hero-logo">
-        <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo">
-      </div>
     </div>
-    <div class="smoke-bg"></div>
   </section>
 
   <!-- Skills Section -->
@@ -66,58 +65,6 @@
     </div>
   </section>
 
-  <section class="projects-section" id="projects">
-    <div class="container">
-      <h2 class="section-title">My Projects</h2>
-      <input type="text" id="project-filter" placeholder="Filter projects..." />
-      <div class="projects-grid" id="projects-list">
-        <div class="project-card" data-keywords="ai writing language">
-          <h3>AI Writing Artifact</h3>
-          <p>A showcase of advanced AI-generated writing, demonstrating language understanding and creative composition.</p>
-          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" class="project-link">View Project</a>
-        </div>
-        <div class="project-card" data-keywords="claude ai text">
-          <h3>Claude Artifact 2</h3>
-          <p>An example of AI-powered text generation, focusing on clarity and practical applications of large language models.</p>
-          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" class="project-link">View Project</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="github-section" id="github">
-    <div class="container">
-      <h2 class="section-title">GitHub Stats</h2>
-      <div class="github-stats">
-        <span id="github-repos">Repos: ...</span>
-        <span id="github-followers">Followers: ...</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <form id="contact-form" novalidate>
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-        <div id="form-msg"></div>
-      </form>
-      <div class="contact-info">
-        <p>Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank">aaryanbastola</a></p>
-        <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank">aaryanbastola</a></p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 Aaryan Bastola. All rights reserved.</p>
-    </div>
-  </footer>
   <script src="script.js"></script>
 </body>
 </html>
