@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aaryan Bastola Portfolio</title>
 
-  <!-- Link CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="logo.png" type="image/png" />
   <link
@@ -13,17 +13,16 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
 
-  <!-- Resume link for download -->
-  <link id="resume-link" href="Aaryan_Bastola_Resume.pdf" download />
+  <!-- Resume download link in header (referenced in CSS for style) -->
 </head>
 <body>
 
   <!-- Parallax Background Container -->
-  <div class="parallax-bg">
-    <svg class="bg-shape shape1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <div class="parallax-bg" aria-hidden="true">
+    <svg class="bg-shape shape1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
       <circle cx="300" cy="300" r="300" fill="rgba(0,188,212,0.1)"/>
     </svg>
-    <svg class="bg-shape shape2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg class="bg-shape shape2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
       <rect width="500" height="500" rx="250" fill="rgba(0,188,212,0.05)"/>
     </svg>
   </div>
@@ -31,15 +30,23 @@
   <!-- Header -->
   <header class="main-header">
     <div class="container header-flex">
-      <img src="logo.png" alt="Logo" class="site-logo" id="logo" tabindex="0" aria-label="Site Logo"/>
+      
+      <!-- Circular logo with ambient glow -->
+      <div class="logo-container" tabindex="0" aria-label="Site Logo" id="logo">
+        <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo" />
+      </div>
+
       <nav>
         <a href="#home" class="nav-link">Home</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
+
         <a href="Aaryan_Bastola_Resume.pdf" download class="resume-btn" aria-label="Download Resume">Download Resume</a>
+
         <button id="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
       </nav>
+
     </div>
   </header>
 
@@ -52,7 +59,9 @@
         <a href="#projects" class="cta-btn">View My Projects</a>
       </div>
       <div class="hero-logo">
-        <img src="logo.png" alt="Logo" class="main-logo" />
+        <div class="logo-container-hero" aria-hidden="true">
+          <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo" />
+        </div>
       </div>
     </div>
   </section>
@@ -89,21 +98,11 @@
       <div class="projects-grid">
         <div class="project-card">
           <h3>AI Writing Artifact</h3>
-          <a
-            href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8"
-            target="_blank"
-            rel="noopener noreferrer"
-            >View Project</a
-          >
+          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
         <div class="project-card">
           <h3>Claude Artifact 2</h3>
-          <a
-            href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d"
-            target="_blank"
-            rel="noopener noreferrer"
-            >View Project</a
-          >
+          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
       </div>
     </div>
@@ -120,15 +119,11 @@
         </p>
         <p>
           <i class="fab fa-linkedin"></i>
-          <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener noreferrer"
-            >LinkedIn</a
-          >
+          <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
         <p>
           <i class="fab fa-github"></i>
-          <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener noreferrer"
-            >GitHub</a
-          >
+          <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
       </div>
     </div>
