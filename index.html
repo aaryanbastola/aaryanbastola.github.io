@@ -5,53 +5,119 @@
   <title>Aaryan Bastola Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="smoke.css">
   <link rel="icon" href="logo.png" type="image/png">
-  <!-- Lottie Player CDN -->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
-  <main>
-    <section class="hero-card" id="home">
-      <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
-      <div class="hero-grid">
-        <div class="hero-content">
-          <h1>
-            Hi, I'm <span class="highlight">Aaryan Bastola</span>
-          </h1>
-          <p class="typewriter" id="typewriter"></p>
-          <div class="hero-stats">
-            <div class="stat">
-              <span id="years-exp" class="stat-num">0</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat">
-              <span id="projects" class="stat-num">0</span>
-              <span class="stat-label">Projects</span>
-            </div>
-            <div class="stat">
-              <span id="coding-hours" class="stat-num">0</span>
-              <span class="stat-label">Hours Coding</span>
-            </div>
-          </div>
-          <div class="cta-group">
-            <a href="cv.pdf" class="cta-btn" download>Download CV</a>
-            <a href="#projects" class="cta-btn secondary">View Projects</a>
-            <a href="#contact" class="cta-btn secondary">Contact Me</a>
-          </div>
+  <header class="main-header">
+    <div class="container header-flex">
+      <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo">
+      <nav>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="cv.pdf" class="nav-link cv-link" target="_blank">CV</a>
+        <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
+        <p class="typewriter" id="typewriter"></p>
+        <a href="#projects" class="cta-btn">View My Projects</a>
+      </div>
+      <div class="hero-logo">
+        <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo">
+      </div>
+    </div>
+    <div class="smoke-bg"></div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-bar">
+          <span class="skill-title">JavaScript</span>
+          <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
+          <span class="skill-level">Intermediate</span>
         </div>
-        <div class="hero-animation">
-          <lottie-player
-            src="https://assets7.lottiefiles.com/packages/lf20_jtbfg2nb.json"
-            background="transparent"
-            speed="1"
-            style="width: 220px; height: 220px;"
-            loop
-            autoplay
-          ></lottie-player>
+        <div class="skill-bar">
+          <span class="skill-title">React.js</span>
+          <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
+          <span class="skill-level">Intermediate</span>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">Python</span>
+          <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
+          <span class="skill-level">Intermediate</span>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">Cybersecurity</span>
+          <div class="bar-bg"><div class="bar-fill" style="width:35%"></div></div>
+          <span class="skill-level">Beginner</span>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      <input type="text" id="project-filter" placeholder="Filter projects..." />
+      <div class="projects-grid" id="projects-list">
+        <div class="project-card" data-keywords="ai writing language">
+          <h3>AI Writing Artifact</h3>
+          <p>A showcase of advanced AI-generated writing, demonstrating language understanding and creative composition.</p>
+          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" class="project-link">View Project</a>
+        </div>
+        <div class="project-card" data-keywords="claude ai text">
+          <h3>Claude Artifact 2</h3>
+          <p>An example of AI-powered text generation, focusing on clarity and practical applications of large language models.</p>
+          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" class="project-link">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="github-section" id="github">
+    <div class="container">
+      <h2 class="section-title">GitHub Stats</h2>
+      <div class="github-stats">
+        <span id="github-repos">Repos: ...</span>
+        <span id="github-followers">Followers: ...</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <form id="contact-form" novalidate>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+        <div id="form-msg"></div>
+      </form>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank">aaryanbastola</a></p>
+        <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank">aaryanbastola</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Aaryan Bastola. All rights reserved.</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
