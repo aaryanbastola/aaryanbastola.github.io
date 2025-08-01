@@ -1,11 +1,19 @@
-// 🌙 Theme Toggle
+// 🌙 Theme Toggle with localStorage
 const themeToggle = document.getElementById('theme-toggle');
 const html = document.documentElement;
+
+// Load saved theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  html.setAttribute('data-theme', savedTheme);
+  themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+}
 
 themeToggle.addEventListener('click', () => {
   const currentTheme = html.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
   themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
 });
 
@@ -46,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 🎯 Scroll-triggered fade-in animation
 const fadeElements = document.querySelectorAll('.fade-in');
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -54,9 +61,7 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.1
-});
+}, { threshold: 0.1 });
 
 fadeElements.forEach(el => {
   el.style.animationPlayState = 'paused';
