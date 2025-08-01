@@ -4,23 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aaryan Bastola Portfolio</title>
+
+  <!-- Link CSS -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="logo.png" type="image/png" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
+
+  <!-- Resume link for download -->
+  <link id="resume-link" href="Aaryan_Bastola_Resume.pdf" download />
 </head>
 <body>
+
+  <!-- Parallax Background Container -->
+  <div class="parallax-bg">
+    <svg class="bg-shape shape1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="300" cy="300" r="300" fill="rgba(0,188,212,0.1)"/>
+    </svg>
+    <svg class="bg-shape shape2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="500" height="500" rx="250" fill="rgba(0,188,212,0.05)"/>
+    </svg>
+  </div>
+
   <!-- Header -->
   <header class="main-header">
     <div class="container header-flex">
-      <img src="logo.png" alt="Logo" class="site-logo" />
+      <img src="logo.png" alt="Logo" class="site-logo" id="logo" tabindex="0" aria-label="Site Logo"/>
       <nav>
         <a href="#home" class="nav-link">Home</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
+        <a href="Aaryan_Bastola_Resume.pdf" download class="resume-btn" aria-label="Download Resume">Download Resume</a>
         <button id="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
       </nav>
     </div>
@@ -31,7 +48,7 @@
     <div class="container hero-content">
       <div class="hero-text">
         <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
-        <p class="typewriter" id="typewriter"></p>
+        <p class="typewriter" id="typewriter" aria-live="polite" aria-atomic="true"></p>
         <a href="#projects" class="cta-btn">View My Projects</a>
       </div>
       <div class="hero-logo">
@@ -41,32 +58,32 @@
   </section>
 
   <!-- Skills Section -->
-  <section class="skills-section fade-in" id="skills">
+  <section class="skills-section fade-in" id="skills" tabindex="0">
     <div class="container">
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
         <div class="skill-bar">
           <span class="skill-title">JavaScript</span>
-          <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
         </div>
         <div class="skill-bar">
           <span class="skill-title">React.js</span>
-          <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
         </div>
         <div class="skill-bar">
           <span class="skill-title">Python</span>
-          <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
         </div>
         <div class="skill-bar">
           <span class="skill-title">Cybersecurity</span>
-          <div class="bar-bg"><div class="bar-fill" style="width:35%"></div></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="35%"></div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section class="projects-section fade-in" id="projects">
+  <section class="projects-section fade-in" id="projects" tabindex="0">
     <div class="container">
       <h2 class="section-title">My Projects</h2>
       <div class="projects-grid">
@@ -74,7 +91,8 @@
           <h3>AI Writing Artifact</h3>
           <a
             href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
             >View Project</a
           >
         </div>
@@ -82,7 +100,8 @@
           <h3>Claude Artifact 2</h3>
           <a
             href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
             >View Project</a
           >
         </div>
@@ -91,7 +110,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="contact-section fade-in" id="contact">
+  <section class="contact-section fade-in" id="contact" tabindex="0">
     <div class="container">
       <h2 class="section-title">Contact Me</h2>
       <div class="contact-info">
@@ -115,6 +134,14 @@
     </div>
   </section>
 
+  <!-- Easter Egg Modal -->
+  <dialog id="easter-egg" role="alertdialog" aria-modal="true" aria-labelledby="egg-title" aria-describedby="egg-desc">
+    <h3 id="egg-title">🎉 Surprise! 🎉</h3>
+    <p id="egg-desc">You found the hidden Easter egg! Keep up the great work! 🚀</p>
+    <button id="egg-close" aria-label="Close">Close</button>
+  </dialog>
+
+  <!-- JavaScript -->
   <script src="script.js" defer></script>
 </body>
 </html>
