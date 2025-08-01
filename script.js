@@ -30,7 +30,7 @@ const phrases = [
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
-let typeSpeed = 100;
+const typeSpeed = 100;
 
 function typeEffect() {
   const currentPhrase = phrases[phraseIndex];
@@ -78,14 +78,11 @@ const appearOptions = {
   rootMargin: "0px 0px -100px 0px"
 };
 
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
   entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-      return;
-    } else {
-      entry.target.classList.add("visible");
-      appearOnScroll.unobserve(entry.target);
-    }
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("visible");
+    observer.unobserve(entry.target);
   });
 }, appearOptions);
 
