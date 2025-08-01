@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="smoke.css">
   <link rel="icon" href="logo.png" type="image/png">
   <style>
-    /* Simple fade-in animation */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s ease forwards;
+      animation-play-state: paused;
     }
 
     @keyframes fadeInUp {
@@ -22,7 +22,6 @@
       }
     }
 
-    /* Popup animation for project cards */
     .project-card {
       opacity: 0;
       transform: scale(0.9);
@@ -61,7 +60,7 @@
     <div class="container hero-content fade-in">
       <div class="hero-text">
         <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
-        <p class="typewriter" id="typewriter">I'm a Web Developer, Programmer, and Cybersecurity Enthusiast.</p>
+        <p class="typewriter" id="typewriter"></p>
         <a href="#projects" class="cta-btn">View My Projects</a>
       </div>
       <div class="hero-logo">
@@ -123,12 +122,11 @@
   <section class="contact-section fade-in" id="contact">
     <div class="container">
       <h2 class="section-title">Contact Me</h2>
-      <form id="contact-form" novalidate>
-        <input type="text" id="name" placeholder="Your Name" required aria-label="Your Name">
-        <input type="email" id="email" placeholder="Your Email" required aria-label="Your Email">
-        <textarea id="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener">aaryanbastola</a></p>
+        <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener">aaryanbastola</a></p>
+      </div>
     </div>
   </section>
 
