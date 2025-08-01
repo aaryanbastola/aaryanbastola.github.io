@@ -1,13 +1,17 @@
-// Animation for project cards on scroll (like mitnepal.edu.np)
-function onScrollAnim() {
-  const cards = document.querySelectorAll('.project-card');
-  const windowBottom = window.innerHeight + window.scrollY;
-  cards.forEach((card, i) => {
-    const cardTop = card.getBoundingClientRect().top + window.scrollY;
-    if (windowBottom > cardTop + 100) {
-      setTimeout(() => card.classList.add('visible'), i * 160);
-    }
+// Reveal .program-card on scroll
+document.addEventListener('DOMContentLoaded', function () {
+  const cards = document.querySelectorAll('.program-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform += ' scale(1.06)';
+        entry.target.style.transition = 'opacity 0.8s, transform 0.8s';
+      }
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => {
+    card.style.opacity = 0;
+    observer.observe(card);
   });
-}
-window.addEventListener('scroll', onScrollAnim);
-window.addEventListener('load', onScrollAnim);
+});
