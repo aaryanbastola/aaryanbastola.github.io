@@ -52,6 +52,7 @@ body {
   cursor: pointer;
   margin-left: 10px;
   color: inherit;
+  transition: color 0.3s ease;
 }
 
 .hero-section {
@@ -59,10 +60,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 60px 20px;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .hero-text {
   max-width: 600px;
+  flex: 1 1 300px;
 }
 
 .highlight {
@@ -81,18 +85,21 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.cta-btn:hover {
+.cta-btn:hover,
+.cta-btn:focus {
   background: #009bbf;
+  outline: none;
 }
 
-.skills-grid, .projects-grid {
+.skills-grid,
+.projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
 .skill-bar {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
   padding: 10px;
   border-radius: 5px;
 }
@@ -113,13 +120,14 @@ body {
 }
 
 .project-card {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
   padding: 20px;
   border-radius: 8px;
 }
 
 .project-card h3 {
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .project-card a {
@@ -128,8 +136,10 @@ body {
   font-weight: 600;
 }
 
-.project-card a:hover {
+.project-card a:hover,
+.project-card a:focus {
   text-decoration: underline;
+  outline: none;
 }
 
 /* Fade-in animations */
@@ -151,7 +161,7 @@ body {
   min-height: 1.5em;
 }
 
-/* Additional responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
