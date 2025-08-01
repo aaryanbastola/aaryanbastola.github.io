@@ -5,6 +5,8 @@ themeBtn.addEventListener('click', () => {
   themeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
   localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
+
+// On page load, respect previous theme
 if(localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark-mode');
   themeBtn.textContent = '☀️';
