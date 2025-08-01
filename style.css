@@ -113,15 +113,4 @@ body {
   height: 100%;
   background: rgba(0,0,0,0.7);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: #fff;
-  padding: 30px
+  justify-content
