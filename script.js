@@ -1,11 +1,10 @@
-// Helper: Safely set attribute with check
+// Helper to set theme safely and persist
 function setDataTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('theme', theme);
 }
 
 // THEME TOGGLE WITH SYSTEM PREFERENCE DETECTION
-
 const themeToggle = document.getElementById('theme-toggle');
 const root = document.documentElement;
 
@@ -19,23 +18,21 @@ if (savedTheme) {
   setDataTheme(savedTheme);
   themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 } else {
-  // Default to system preference
   const sysTheme = getSystemTheme();
   setDataTheme(sysTheme);
   themeToggle.textContent = sysTheme === 'dark' ? '🌙' : '☀️';
 }
 
-// Listen for system theme changes and update if no user override
+// Listen for system theme changes (only if no manual user override)
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  const userTheme = localStorage.getItem('theme');
-  if (!userTheme) {
+  if (!localStorage.getItem('theme')) {
     const newTheme = e.matches ? 'dark' : 'light';
     setDataTheme(newTheme);
     themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
   }
 });
 
-// Theme toggle button click
+// On toggle button click
 themeToggle.addEventListener('click', () => {
   const currentTheme = root.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -44,7 +41,6 @@ themeToggle.addEventListener('click', () => {
 });
 
 // TYPEWRITER EFFECT
-
 const typewriter = document.getElementById('typewriter');
 const phrases = [
   'Web Developer 💻',
@@ -72,14 +68,12 @@ function typeEffect() {
   typewriter.textContent = displayedText;
 
   if (!isDeleting && charIndex === currentPhrase.length) {
-    // Pause before deleting
     setTimeout(() => {
       isDeleting = true;
       typeEffect();
     }, 1500);
     return;
   } else if (isDeleting && charIndex === 0) {
-    // Move to next phrase
     isDeleting = false;
     phraseIndex = (phraseIndex + 1) % phrases.length;
     setTimeout(typeEffect, 500);
@@ -95,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // FADE-IN ON SCROLL
-
 const faders = document.querySelectorAll('.fade-in');
 
 const appearOptions = {
@@ -116,7 +109,6 @@ faders.forEach(fader => {
 });
 
 // ANIMATED SKILL BARS WHEN IN VIEW
-
 const skillBars = document.querySelectorAll('.bar-fill');
 const skillSection = document.getElementById('skills');
 
@@ -146,14 +138,12 @@ if (skillSection) {
 }
 
 // PARALLAX BACKGROUND EFFECT
-
 const shape1 = document.querySelector('.shape1');
 const shape2 = document.querySelector('.shape2');
 
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
 
-  // Translate shapes at different slower speeds vertically
   if (shape1) {
     shape1.style.transform = `translateY(${scrollY * 0.4}px)`;
   }
@@ -163,14 +153,12 @@ window.addEventListener('scroll', () => {
 });
 
 // EASTER EGG: CLICK 5 TIMES ON LOGO TO REVEAL MODAL
-
 const logo = document.getElementById('logo');
 const easterEgg = document.getElementById('easter-egg');
 const eggCloseBtn = document.getElementById('egg-close');
 let clickCount = 0;
 const requiredClicks = 5;
 const clickTimeout = 2000; // 2 seconds reset
-
 let clickTimer;
 
 logo.addEventListener('click', () => {
@@ -181,11 +169,13 @@ logo.addEventListener('click', () => {
     clearTimeout(clickTimer);
   } else {
     clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => { clickCount = 0; }, clickTimeout);
+    clickTimer = setTimeout(() => {
+      clickCount = 0;
+    }, clickTimeout);
   }
 });
 
-// Accessibility: Also allow keyboard Enter on logo to trigger clicks count
+// Accessibility: Allow Enter/Space key trigger for logo Easter egg
 logo.addEventListener('keydown', e => {
   if (e.key === 'Enter' || e.key === ' ') {
     e.preventDefault();
