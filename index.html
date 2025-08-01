@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aaryan Bastola Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="smoke.css">
-  <link rel="icon" href="logo.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="smoke.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
 <body>
   <!-- Loading Spinner -->
@@ -19,14 +25,14 @@
   <header class="main-header">
     <div class="container header-flex">
       <a href="#home" aria-label="Homepage">
-        <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo">
+        <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo" />
       </a>
       <nav aria-label="Main Navigation">
         <a href="#home" class="nav-link">Home</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <a href="cv.pdf" class="nav-link cv-link" target="_blank" rel="noopener">CV</a>
+        <a href="cv.pdf" class="nav-link cv-link" target="_blank">CV</a>
         <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
       </nav>
     </div>
@@ -41,7 +47,7 @@
         <a href="#projects" class="cta-btn">View My Projects</a>
       </div>
       <div class="hero-logo">
-        <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo">
+        <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo" />
       </div>
     </div>
     <div class="smoke-bg" aria-hidden="true"></div>
@@ -80,7 +86,7 @@
   <section class="projects-section fade-in" id="projects">
     <div class="container">
       <h2 class="section-title">My Projects</h2>
-      <div class="projects-grid" id="projects-list">
+      <div class="projects-grid">
         <div class="project-card" style="--delay: 0s">
           <h3>AI Writing Artifact</h3>
           <p>Advanced AI-generated writing showcasing language understanding and creativity.</p>
@@ -110,7 +116,6 @@
   <!-- Scripts -->
   <script src="script.js" defer></script>
   <script>
-    // Loader fade-out
     window.addEventListener('load', () => {
       document.getElementById('loader').style.display = 'none';
       document.body.classList.add('loaded');
