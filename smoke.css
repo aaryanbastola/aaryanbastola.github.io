@@ -1,12 +1,22 @@
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 350px; /* Ensure there's enough space */
+  z-index: 1;
+}
+
 .smoke-bg {
   position: absolute;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
-  overflow: hidden;
-  background: radial-gradient(ellipse at 80% 30%, #e0b95b18 0%, transparent 70%), 
-              radial-gradient(ellipse at 20% 90%, #e0b95b0a 0%, transparent 80%);
+  background: 
+    radial-gradient(ellipse at 80% 30%, #e0b95b66 0%, transparent 70%), 
+    radial-gradient(ellipse at 20% 90%, #e0b95b33 0%, transparent 80%);
   animation: smokemove 22s linear infinite alternate;
+  opacity: 0.6;
 }
 @keyframes smokemove {
   0% { background-position: 0px 0px, 0px 0px; }
