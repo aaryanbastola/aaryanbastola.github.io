@@ -78,19 +78,104 @@ body {
   gap: 10px;
 }
 
-.site-logo {
-  height: 40px;
+/* Circular logo container with ambient glow */
+.logo-container {
+  display: inline-block;
+  border-radius: 50%; /* Circular */
+  overflow: visible;
+  position: relative;
   cursor: pointer;
+  outline-offset: 4px;
   user-select: none;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
-.site-logo:focus {
+.logo-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 188, 212, 0.35) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(20px);
+  z-index: -1;
+  animation: ambientGlow 4s ease-in-out infinite alternate;
+}
+
+.logo-container:focus {
   outline: 3px solid var(--accent);
-  outline-offset: 2px;
   transform: scale(1.05);
 }
 
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+/* Circular logo for hero with bigger glow */
+.logo-container-hero {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: visible;
+  position: relative;
+  user-select: none;
+  width: 200px;
+  height: 200px;
+}
+
+.logo-container-hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 188, 212, 0.25) 0%,
+    transparent 75%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(30px);
+  z-index: -1;
+  animation: ambientGlow 6s ease-in-out infinite alternate;
+}
+
+.site-logo,
+.main-logo {
+  border-radius: 50%;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ambient glow animation */
+@keyframes ambientGlow {
+  0% {
+    filter: blur(15px);
+    opacity: 0.7;
+  }
+  50% {
+    filter: blur(25px);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(15px);
+    opacity: 0.7;
+  }
+}
+
+/* Navigation styles */
 .nav-link {
   margin: 0 10px;
   text-decoration: none;
@@ -170,11 +255,6 @@ body {
   align-items: center;
 }
 
-.main-logo {
-  max-width: 200px;
-  user-select: none;
-}
-
 /* Skills and Projects */
 .skills-grid,
 .projects-grid {
@@ -202,7 +282,7 @@ body {
   background: var(--accent);
   height: 100%;
   border-radius: 5px;
-  width: 0; /* Start at zero for animation */
+  width: 0; /* will animate from 0 */
   transition: width 1.2s ease-in-out;
 }
 
