@@ -5,52 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aaryan Bastola Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="smoke.css" />
   <link rel="icon" href="logo.png" type="image/png" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-..."
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <!-- Loading Spinner -->
-  <div id="loader">
-    <div class="spinner"></div>
-  </div>
 
   <!-- Header -->
   <header class="main-header">
     <div class="container header-flex">
-      <a href="#home" aria-label="Homepage">
-        <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo" />
-      </a>
-      <nav aria-label="Main Navigation">
+      <img src="logo.png" alt="Logo" class="site-logo" />
+      <nav>
         <a href="#home" class="nav-link">Home</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <a href="cv.pdf" class="nav-link cv-link" target="_blank">CV</a>
-        <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button id="theme-toggle">🌙</button>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-section" id="home">
-    <div class="container hero-content fade-in">
+  <section class="hero-section fade-in" id="home">
+    <div class="container hero-content">
       <div class="hero-text">
         <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
         <p class="typewriter" id="typewriter"></p>
         <a href="#projects" class="cta-btn">View My Projects</a>
       </div>
       <div class="hero-logo">
-        <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo" />
+        <img src="logo.png" alt="Logo" class="main-logo" />
       </div>
     </div>
-    <div class="smoke-bg" aria-hidden="true"></div>
   </section>
 
   <!-- Skills Section -->
@@ -61,22 +46,18 @@
         <div class="skill-bar">
           <span class="skill-title">JavaScript</span>
           <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
-          <span class="skill-level">Intermediate</span>
         </div>
         <div class="skill-bar">
           <span class="skill-title">React.js</span>
           <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
-          <span class="skill-level">Intermediate</span>
         </div>
         <div class="skill-bar">
           <span class="skill-title">Python</span>
           <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
-          <span class="skill-level">Intermediate</span>
         </div>
         <div class="skill-bar">
           <span class="skill-title">Cybersecurity</span>
           <div class="bar-bg"><div class="bar-fill" style="width:35%"></div></div>
-          <span class="skill-level">Beginner</span>
         </div>
       </div>
     </div>
@@ -87,15 +68,13 @@
     <div class="container">
       <h2 class="section-title">My Projects</h2>
       <div class="projects-grid">
-        <div class="project-card" style="--delay: 0s">
+        <div class="project-card">
           <h3>AI Writing Artifact</h3>
-          <p>Advanced AI-generated writing showcasing language understanding and creativity.</p>
-          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" class="project-link">View Project</a>
+          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank">View Project</a>
         </div>
-        <div class="project-card" style="--delay: 0.2s">
+        <div class="project-card">
           <h3>Claude Artifact 2</h3>
-          <p>AI-powered text generation focused on clarity and practical applications.</p>
-          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" class="project-link">View Project</a>
+          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank">View Project</a>
         </div>
       </div>
     </div>
@@ -106,20 +85,13 @@
     <div class="container">
       <h2 class="section-title">Contact Me</h2>
       <div class="contact-info">
-        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
-        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank">aaryanbastola</a></p>
-        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/aaryanbastola" target="_blank">aaryanbastola</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:aaryanbastola221@gmail.com">Email Me</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aaryanbastola" target="_blank">LinkedIn</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/aaryanbastola" target="_blank">GitHub</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Scripts -->
   <script src="script.js" defer></script>
-  <script>
-    window.addEventListener('load', () => {
-      document.getElementById('loader').style.display = 'none';
-      document.body.classList.add('loaded');
-    });
-  </script>
 </body>
 </html>
