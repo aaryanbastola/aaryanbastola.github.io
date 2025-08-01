@@ -1,69 +1,96 @@
-// 🌙 Theme Toggle with localStorage
-const themeToggle = document.getElementById('theme-toggle');
-const html = document.documentElement;
-
-// Load saved theme
-const savedTheme = localStorage.getItem('theme');
+// 🌗 Theme Toggle with localStorage
+const themeToggle = document.getElementById("theme-toggle");
+const root = document.documentElement;
+const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
-  html.setAttribute('data-theme', savedTheme);
-  themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+  root.setAttribute("data-theme", savedTheme);
+  themeToggle.textContent = savedTheme === "dark" ? "🌙" : "☀️";
 }
-
-themeToggle.addEventListener('click', () => {
-  const currentTheme = html.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-  themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+themeToggle.addEventListener("click", () => {
+  const current = root.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  root.setAttribute("data-theme", next);
+  localStorage.setItem("theme", next);
+  themeToggle.textContent = next === "dark" ? "🌙" : "☀️";
 });
 
 // ⌨️ Typewriter Effect
-const typewriter = document.getElementById('typewriter');
+const typewriter = document.getElementById("typewriter");
 const phrases = [
-  "I'm a Web Developer, Programmer, and Cybersecurity Enthusiast.",
-  "I build responsive websites and secure systems.",
-  "Let's create something amazing together!"
+  "Web Developer 💻",
+  "UI/UX Enthusiast 🎨",
+  "React Explorer ⚛️",
+  "Always Learning 🚀"
 ];
-let phraseIndex = 0;
-let charIndex = 0;
-
+let i = 0, j = 0, typing = true;
 function type() {
-  if (charIndex < phrases[phraseIndex].length) {
-    typewriter.textContent += phrases[phraseIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(type, 50);
+  if (typing) {
+    if (j < phrases[i].length) {
+      typewriter.textContent += phrases[i][j++];
+      setTimeout(type, 100);
+    } else {
+      typing = false;
+      setTimeout(type, 1500);
+    }
   } else {
-    setTimeout(erase, 2000);
+    if (j > 0) {
+      typewriter.textContent = phrases[i].substring(0, --j);
+      setTimeout(type, 50);
+    } else {
+      typing = true;
+      i = (i + 1) % phrases.length;
+      setTimeout(type, 500);
+    }
   }
 }
+type();
 
-function erase() {
-  if (charIndex > 0) {
-    typewriter.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(erase, 30);
-  } else {
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    setTimeout(type, 500);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  type();
-});
-
-// 🎯 Scroll-triggered fade-in animation
-const fadeElements = document.querySelectorAll('.fade-in');
-const observer = new IntersectionObserver((entries) => {
+// 🎬 Scroll-triggered fade-in
+const faders = document.querySelectorAll(".fade-in");
+const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.animationPlayState = 'running';
-      observer.unobserve(entry.target);
+      entry.target.classList.add("visible");
+      obs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.3 });
+faders.forEach(el => observer.observe(el));
 
-fadeElements.forEach(el => {
-  el.style.animationPlayState = 'paused';
-  observer.observe(el);
+// 🧠 Modal Logic
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDesc = document.getElementById("modal-description");
+const modalLink = document.getElementById("modal-link");
+const closeBtn = document.querySelector(".close-btn");
+
+// Open modal
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("click", () => {
+    modalTitle.textContent = card.dataset.title;
+    modalDesc.textContent = card.dataset.description;
+    modalLink.href = card.dataset.link;
+    modal.classList.remove("hidden");
+    modal.focus();
+  });
+
+  // Keyboard accessibility
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      card.click();
+    }
+  });
+});
+
+// Close modal
+closeBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+// Close modal with Escape key
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    modal.classList.add("hidden");
+  }
 });
