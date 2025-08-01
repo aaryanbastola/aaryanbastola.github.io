@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <title>Aaryan Bastola Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaryan Bastola Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="smoke.css">
   <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
+  <!-- Header -->
   <header class="main-header">
     <div class="container header-flex">
-      <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo">
-      <nav>
+      <a href="#home" aria-label="Homepage">
+        <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo">
+      </a>
+      <nav aria-label="Main Navigation">
         <a href="#home" class="nav-link">Home</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <a href="cv.pdf" class="nav-link cv-link" target="_blank">CV</a>
-        <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <a href="cv.pdf" class="nav-link cv-link" target="_blank" rel="noopener">CV</a>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
       </nav>
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero-section" id="home">
     <div class="container hero-content">
       <div class="hero-text">
@@ -34,7 +38,7 @@
         <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo">
       </div>
     </div>
-    <div class="smoke-bg"></div>
+    <div class="smoke-bg" aria-hidden="true"></div>
   </section>
 
   <!-- Skills Section -->
@@ -42,6 +46,7 @@
     <div class="container">
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
+        <!-- Skill Item -->
         <div class="skill-bar">
           <span class="skill-title">JavaScript</span>
           <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
@@ -66,25 +71,27 @@
     </div>
   </section>
 
+  <!-- Projects Section -->
   <section class="projects-section" id="projects">
     <div class="container">
       <h2 class="section-title">My Projects</h2>
-      <input type="text" id="project-filter" placeholder="Filter projects..." />
+      <input type="text" id="project-filter" placeholder="Filter projects..." aria-label="Filter projects">
       <div class="projects-grid" id="projects-list">
         <div class="project-card" data-keywords="ai writing language">
           <h3>AI Writing Artifact</h3>
-          <p>A showcase of advanced AI-generated writing, demonstrating language understanding and creative composition.</p>
-          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" class="project-link">View Project</a>
+          <p>Advanced AI-generated writing showcasing language understanding and creativity.</p>
+          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" rel="noopener" class="project-link">View Project</a>
         </div>
         <div class="project-card" data-keywords="claude ai text">
           <h3>Claude Artifact 2</h3>
-          <p>An example of AI-powered text generation, focusing on clarity and practical applications of large language models.</p>
-          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" class="project-link">View Project</a>
+          <p>AI-powered text generation focused on clarity and practical applications.</p>
+          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" rel="noopener" class="project-link">View Project</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- GitHub Stats -->
   <section class="github-section" id="github">
     <div class="container">
       <h2 class="section-title">GitHub Stats</h2>
@@ -95,29 +102,33 @@
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section class="contact-section" id="contact">
     <div class="container">
       <h2 class="section-title">Contact Me</h2>
       <form id="contact-form" novalidate>
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
+        <input type="text" id="name" placeholder="Your Name" required aria-label="Your Name">
+        <input type="email" id="email" placeholder="Your Email" required aria-label="Your Email">
+        <textarea id="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
         <button type="submit">Send Message</button>
-        <div id="form-msg"></div>
+        <div id="form-msg" role="alert"></div>
       </form>
       <div class="contact-info">
         <p>Email: <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank">aaryanbastola</a></p>
-        <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank">aaryanbastola</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener">aaryanbastola</a></p>
+        <p>GitHub: <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener">aaryanbastola</a></p>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>© 2025 Aaryan Bastola. All rights reserved.</p>
     </div>
   </footer>
-  <script src="script.js"></script>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
 </body>
 </html>
