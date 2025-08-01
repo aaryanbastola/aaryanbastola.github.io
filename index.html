@@ -9,32 +9,18 @@
   <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
-  <header class="main-header">
-    <div class="container header-flex">
-      <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo">
-      <nav>
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="cv.pdf" class="nav-link cv-link" target="_blank">CV</a>
-        <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero-section" id="home">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
-        <p class="typewriter" id="typewriter"></p>
-        <a href="#projects" class="cta-btn">View My Projects</a>
-      </div>
-      <div class="hero-logo">
-        <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo">
+  <!-- Hero Section as Elevated Card -->
+  <section class="hero-card" id="home">
+    <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+    <div class="hero-content">
+      <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
+      <p class="tagline">Web Developer • Cybersecurity & Ethical Hacking Enthusiast</p>
+      <div class="cta-group">
+        <a href="cv.pdf" class="cta-btn" download>Download CV</a>
+        <a href="#projects" class="cta-btn secondary">View Projects</a>
+        <a href="#contact" class="cta-btn secondary">Contact Me</a>
       </div>
     </div>
-    <div class="smoke-bg"></div>
   </section>
 
   <!-- Skills Section -->
