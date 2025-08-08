@@ -1,202 +1,167 @@
-// Helper to set theme safely and persist
-function setDataTheme(theme) {
+/* Main interactions: theme, typewriter, fade-in, skill bars, parallax, lightbox, surprise pulse */
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupTheme();
+  startTypewriter();
+  initFadeIn();
+  initSkillBars();
+  initParallax();
+  initLightbox();
+  initSurprise();
+});
+
+/* ========= THEME ========= */
+function setDataTheme(theme){
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('theme', theme);
 }
-
-// THEME TOGGLE WITH SYSTEM PREFERENCE DETECTION
-const themeToggle = document.getElementById('theme-toggle');
-const root = document.documentElement;
-
-function getSystemTheme() {
+function getSystemTheme(){
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
-
-// Initialize theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-  setDataTheme(savedTheme);
-  themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
-} else {
-  const sysTheme = getSystemTheme();
-  setDataTheme(sysTheme);
-  themeToggle.textContent = sysTheme === 'dark' ? '🌙' : '☀️';
-}
-
-// Listen for system theme changes (only if no manual user override)
-if (window.matchMedia) {
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (!localStorage.getItem('theme')) {
-      const newTheme = e.matches ? 'dark' : 'light';
-      setDataTheme(newTheme);
-      themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-    }
+function setupTheme(){
+  const btn = document.getElementById('theme-toggle');
+  const saved = localStorage.getItem('theme');
+  const theme = saved || getSystemTheme();
+  setDataTheme(theme);
+  if(btn) btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+  if(btn) btn.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    setDataTheme(next);
+    btn.textContent = next === 'dark' ? '🌙' : '☀️';
   });
-}
-
-// On toggle button click
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const currentTheme = root.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setDataTheme(newTheme);
-    themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-  });
-}
-
-// TYPEWRITER EFFECT
-const typewriter = document.getElementById('typewriter');
-const phrases = [
-  'Web Developer 💻',
-  'UI/UX Enthusiast 🎨',
-  'React Explorer ⚛️',
-  'Always Learning 🚀'
-];
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typeSpeed = 100;
-
-function typeEffect() {
-  const currentPhrase = phrases[phraseIndex];
-  let displayedText = '';
-
-  if (isDeleting) {
-    charIndex = Math.max(0, charIndex - 1);
-    displayedText = currentPhrase.substring(0, charIndex);
-  } else {
-    charIndex = Math.min(currentPhrase.length, charIndex + 1);
-    displayedText = currentPhrase.substring(0, charIndex);
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if(!localStorage.getItem('theme')) setDataTheme(e.matches ? 'dark' : 'light');
+    });
   }
-
-  if (typewriter) typewriter.textContent = displayedText;
-
-  if (!isDeleting && charIndex === currentPhrase.length) {
-    setTimeout(() => {
-      isDeleting = true;
-      typeEffect();
-    }, 1500);
-    return;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    setTimeout(typeEffect, 500);
-    return;
-  }
-
-  const delay = isDeleting ? typeSpeed / 2 : typeSpeed;
-  setTimeout(typeEffect, delay);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  typeEffect();
-});
+/* ========= TYPEWRITER ========= */
+function startTypewriter(){
+  const el = document.getElementById('typewriter');
+  if(!el) return;
+  const phrases = ['Web Developer 💻','UI/UX Enthusiast 🎨','React Explorer ⚛️','Always Learning 🚀'];
+  let pi=0, ci=0, del=90, deleting=false;
+  (function tick(){
+    const p = phrases[pi];
+    if(deleting){ ci = Math.max(0, ci-1); } else { ci = Math.min(p.length, ci+1); }
+    el.textContent = p.substring(0,ci);
+    if(!deleting && ci === p.length){ deleting=true; setTimeout(tick,1500); return; }
+    if(deleting && ci===0){ deleting=false; pi=(pi+1)%phrases.length; setTimeout(tick,500); return; }
+    setTimeout(tick, deleting ? del/2 : del);
+  })();
+}
 
-// FADE-IN ON SCROLL
-const faders = document.querySelectorAll('.fade-in');
-
-const appearOptions = {
-  threshold: 0,
-  rootMargin: '0px 0px -100px 0px'
-};
-
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('visible');
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
-
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
-
-// ANIMATED SKILL BARS WHEN IN VIEW
-const skillBars = document.querySelectorAll('.bar-fill');
-const skillSection = document.getElementById('skills');
-
-const animateSkillBars = () => {
-  skillBars.forEach(bar => {
-    const targetWidth = bar.getAttribute('data-width');
-    if (/^\d+%$/.test(targetWidth)) {
-      bar.style.width = targetWidth;
-    } else {
-      bar.style.width = '50%';
-    }
-  });
-};
-
-const skillObserver = new IntersectionObserver(
-  (entries, observer) => {
+/* ========= FADE-IN ON SCROLL ========= */
+function initFadeIn(){
+  const faders = document.querySelectorAll('.fade-in');
+  const obs = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateSkillBars();
-        observer.unobserve(entry.target);
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, {threshold: 0.12});
+  faders.forEach(f => obs.observe(f));
+}
+
+/* ========= SKILL BARS ========= */
+function initSkillBars(){
+  const bars = document.querySelectorAll('.bar-fill');
+  const section = document.getElementById('skills');
+  if(!section) return;
+  const obs = new IntersectionObserver((entries, o) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        bars.forEach(b => {
+          const w = b.dataset.width || '50%';
+          if(/^\d+%$/.test(w)) b.style.width = w;
+          else b.style.width = '50%';
+        });
+        o.unobserve(entry.target);
       }
     });
-  }, 
-  {
-    threshold: 0.5
+  }, {threshold: 0.4});
+  obs.observe(section);
+}
+
+/* ========= PARALLAX ========= */
+function initParallax(){
+  const s1 = document.querySelector('.shape1');
+  const s2 = document.querySelector('.shape2');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY || window.pageYOffset;
+    if(s1) s1.style.transform = `translateY(${y*0.35}px)`;
+    if(s2) s2.style.transform = `translateY(${y*0.18}px)`;
+  });
+}
+
+/* ========= LIGHTBOX ========= */
+function initLightbox(){
+  const grid = document.getElementById('cert-grid');
+  const lightbox = document.getElementById('lightbox');
+  const frame = document.getElementById('lb-frame');
+  const title = document.getElementById('lb-title');
+  const openBtn = document.getElementById('lb-open');
+  const closeBtn = document.getElementById('lb-close');
+  const prevBtn = document.getElementById('lb-prev');
+  const nextBtn = document.getElementById('lb-next');
+  if(!grid || !lightbox) return;
+
+  const items = Array.from(grid.querySelectorAll('.cert-card'));
+  const srcs = items.map(i => i.dataset.src);
+  const titles = items.map(i => i.dataset.title);
+  let current = -1;
+
+  function openAt(i){
+    if(i<0||i>=srcs.length) return;
+    current = i;
+    const url = srcs[current];
+    frame.src = url;
+    title.textContent = titles[current] || '';
+    openBtn.href = url;
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    frame.style.transform = 'scale(.99)';
+    setTimeout(()=> frame.style.transform = 'scale(1)', 60);
   }
-);
+  function closeLB(){ lightbox.setAttribute('aria-hidden','true'); frame.src='about:blank'; document.body.style.overflow = ''; current=-1; }
+  function prev(){ openAt(current>0?current-1:srcs.length-1); }
+  function next(){ openAt(current<srcs.length-1?current+1:0); }
 
-if (skillSection) {
-  skillObserver.observe(skillSection);
-}
-
-// PARALLAX BACKGROUND EFFECT
-const shape1 = document.querySelector('.shape1');
-const shape2 = document.querySelector('.shape2');
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY || window.pageYOffset;
-  if (shape1) shape1.style.transform = `translateY(${scrollY * 0.4}px)`;
-  if (shape2) shape2.style.transform = `translateY(${scrollY * 0.2}px)`;
-});
-
-// EASTER EGG: CLICK 5 TIMES ON LOGO TO REVEAL MODAL
-const logo = document.getElementById('logo');
-const easterEgg = document.getElementById('easter-egg');
-const eggCloseBtn = document.getElementById('egg-close');
-let clickCount = 0;
-const requiredClicks = 5;
-const clickTimeout = 2000; // 2 seconds reset
-let clickTimer;
-
-if (logo) {
-  logo.addEventListener('click', () => {
-    clickCount++;
-    if (clickCount === requiredClicks) {
-      if (typeof easterEgg.showModal === 'function') {
-        easterEgg.showModal();
-      } else {
-        easterEgg.style.display = 'block';
-      }
-      clickCount = 0;
-      clearTimeout(clickTimer);
-    } else {
-      clearTimeout(clickTimer);
-      clickTimer = setTimeout(() => {
-        clickCount = 0;
-      }, clickTimeout);
-    }
+  items.forEach((btn, idx) => {
+    btn.addEventListener('click', () => openAt(idx));
+    btn.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') { e.preventDefault(); openAt(idx); }});
   });
 
-  logo.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      logo.click();
+  closeBtn.addEventListener('click', closeLB);
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLB(); });
+
+  document.addEventListener('keydown', e => {
+    if(lightbox.getAttribute('aria-hidden') === 'false'){
+      if(e.key === 'Escape') closeLB();
+      if(e.key === 'ArrowLeft') prev();
+      if(e.key === 'ArrowRight') next();
     }
   });
 }
 
-if (eggCloseBtn) {
-  eggCloseBtn.addEventListener('click', () => {
-    if (typeof easterEgg.close === 'function') {
-      easterEgg.close();
+/* ========= SURPRISE ========= */
+function initSurprise(){
+  const btn = document.getElementById('surprise');
+  const logo = document.getElementById('logo');
+  if(!btn || !logo) return;
+  let active = false;
+  btn.addEventListener('click', () => {
+    active = !active;
+    if(active){
+      logo.classList.add('logo-pulse');
+      btn.textContent = 'Pulse on — click to stop ✨';
     } else {
-      easterEgg.style.display = 'none';
+      logo.classList.remove('logo-pulse');
+      btn.textContent = 'Curious? Click me ✨';
     }
   });
 }
