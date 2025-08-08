@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """
 manage_files.py
-Simple utility to ensure cv.pdf exists and certificates are placed in ./certs/
-Run from your site folder: python3 manage_files.py
+Place cv.pdf into static/ and move your certificate PDFs into static/certs/
+Run from project root.
 """
+import os, shutil
 
-import os
-import shutil
-import sys
+ROOT = os.path.abspath(os.path.dirname(__file__))
+STATIC = os.path.join(ROOT, 'static')
+CERTS_DIR = os.path.join(STATIC, 'certs')
+IMAGES_DIR = os.path.join(STATIC, 'images')
 
-# Filenames you specified (exact)
+os.makedirs(CERTS_DIR, exist_ok=True)
+os.makedirs(IMAGES_DIR, exist_ok=True)
+
 CERT_FILES = [
     "_certificate_aaryanbastola221-gmail-com_7354cbbe-1d15-419a-9dcc-c28a25c1d13d.pdf",
     "_certificate_aaryanbastola221-gmail-com_528379cc-5ed9-488b-9eb1-6d9440bdf1be.pdf",
@@ -17,76 +21,59 @@ CERT_FILES = [
     "_certificate_aaryanbastola221-gmail-com_fca4a681-d938-445a-bb12-eaab749d42eb.pdf"
 ]
 
-# Common alternate CV/resume filenames we will try to rename to cv.pdf if cv.pdf is missing
 POSSIBLE_CV_NAMES = [
-    "Aaryan_Bastola_Resume.pdf",
-    "Aaryan_Bastola_CV.pdf",
-    "resume.pdf",
-    "CV.pdf",
-    "aaryan_cv.pdf",
-    "aaryan_resume.pdf"
+    "cv.pdf", "CV.pdf", "Aaryan_Bastola_CV.pdf", "Aaryan_Bastola_Resume.pdf", "resume.pdf"
 ]
 
-def ensure_cv_exists():
-    if os.path.exists("cv.pdf"):
-        print("✅ cv.pdf already exists.")
+def ensure_cv():
+    dest = os.path.join(STATIC, 'cv.pdf')
+    if os.path.exists(dest):
+        print("✅ static/cv.pdf already present.")
         return True
-
     for name in POSSIBLE_CV_NAMES:
-        if os.path.exists(name):
-            try:
-                shutil.copy2(name, "cv.pdf")
-                print(f"✅ Found '{name}' — copied to 'cv.pdf'.")
-                return True
-            except Exception as e:
-                print(f"❌ Error copying {name} to cv.pdf: {e}")
-                return False
-
-    print("⚠️ cv.pdf not found and no common alternatives were present.")
+        src = os.path.join(ROOT, name)
+        if os.path.exists(src):
+            shutil.copy2(src, dest)
+            print(f"✅ Copied {name} -> static/cv.pdf")
+            return True
+    print("⚠️ No CV found in root. Place cv.pdf in project root and re-run.")
     return False
 
-def move_certificates():
-    certs_dir = "certs"
-    os.makedirs(certs_dir, exist_ok=True)
+def move_certs():
     moved = []
     missing = []
-
     for cert in CERT_FILES:
-        if os.path.exists(cert):
-            try:
-                dst = os.path.join(certs_dir, cert)
-                shutil.move(cert, dst)
-                moved.append(cert)
-            except Exception as e:
-                print(f"❌ Failed to move {cert}: {e}")
+        src = os.path.join(ROOT, cert)
+        if os.path.exists(src):
+            dst = os.path.join(CERTS_DIR, cert)
+            shutil.move(src, dst)
+            moved.append(cert)
         else:
             missing.append(cert)
+    return moved, missing
 
-    return moved, missing, certs_dir
-
-def main():
-    print("→ Running file manager...")
-    cv_ok = ensure_cv_exists()
-
-    moved, missing, certs_dir = move_certificates()
-
-    print("\n--- Summary ---")
-    print(f"cv.pdf present: {'Yes' if cv_ok else 'No'}")
-    if moved:
-        print(f"Moved {len(moved)} certificate(s) into ./{certs_dir}/:")
-        for m in moved:
-            print(f"  • {m}")
-    if missing:
-        print(f"\nMissing {len(missing)} certificate(s):")
-        for mm in missing:
-            print(f"  • {mm}")
-        print("\nPut missing certificate files in the project folder and re-run this script, or upload them to your server and update the hrefs in index.html accordingly.")
-
-    print("\nAll done. If you want me to:")
-    print(" - generate GitHub raw links for these files,")
-    print(" - create a zip bundle ready for GitHub Pages,")
-    print(" - or auto-convert a DOCX CV into a clean PDF template (needs more info),")
-    print("say which and I’ll do it.")
+def copy_logo():
+    src_names = ['logo.png', 'logo.jpg']
+    for nm in src_names:
+        src = os.path.join(ROOT, nm)
+        if os.path.exists(src):
+            dst = os.path.join(IMAGES_DIR, nm)
+            shutil.copy2(src, dst)
+            print(f"✅ Copied {nm} -> static/images/")
+            return True
+    print("⚠️ No logo found in project root. Add logo.png to static/images/")
+    return False
 
 if __name__ == "__main__":
-    main()
+    print("→ Running manage_files...")
+    ensure_cv()
+    copy_logo()
+    moved, missing = move_certs()
+    print()
+    if moved:
+        print("Moved certificates:")
+        for m in moved: print(" •", m)
+    if missing:
+        print("Missing certificates (place them in project root to move):")
+        for mm in missing: print(" •", mm)
+    print("\nDone. Then run: python app.py")
