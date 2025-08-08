@@ -81,7 +81,7 @@ body {
 /* Circular logo container with ambient glow */
 .logo-container {
   display: inline-block;
-  border-radius: 50%; /* Circular */
+  border-radius: 50%;
   overflow: visible;
   position: relative;
   cursor: pointer;
@@ -308,6 +308,34 @@ body {
 .project-card a:focus {
   text-decoration: underline;
   outline: none;
+}
+
+/* Certificates */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.cert-card {
+  background: rgba(0, 0, 0, 0.04);
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.cert-card h4 {
+  margin: 0 0 8px;
+}
+
+.cert-card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cert-card a:hover, .cert-card a:focus {
+  text-decoration: underline;
 }
 
 /* Fade-in animation */
