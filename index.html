@@ -1,173 +1,186 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aaryan Bastola — Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aaryan Bastola Portfolio</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Main CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 
-  <link rel="icon" href="static/images/logo.png" type="image/png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
+
+  <!-- Parallax Background Container -->
   <div class="parallax-bg" aria-hidden="true">
     <svg class="bg-shape shape1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="300" cy="300" r="300" fill="#BA8225" opacity="0.08"/>
+      <circle cx="300" cy="300" r="300" fill="rgba(0,188,212,0.1)"/>
     </svg>
     <svg class="bg-shape shape2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-      <rect width="500" height="500" rx="250" fill="#BA8225" opacity="0.05"/>
+      <rect width="500" height="500" rx="250" fill="rgba(0,188,212,0.05)"/>
     </svg>
   </div>
 
-  <header class="main-header container">
-    <div class="left">
-      <button id="logo" class="logo-container" aria-label="Site Logo" title="Click for surprise">
-        <img src="static/images/logo.png" alt="Aaryan Bastola Logo" class="site-logo" />
-      </button>
-      <span class="brand">Aaryan Bastola</span>
-    </div>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo-container" tabindex="0" aria-label="Site Logo" id="logo">
+        <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo" />
+      </div>
 
-    <nav class="nav" aria-label="Main navigation">
-      <a class="nav-btn" href="#home">Home</a>
-      <a class="nav-btn" href="#skills">Skills</a>
-      <a class="nav-btn" href="#projects">Projects</a>
-      <a class="nav-btn" href="#certificates">Certificates</a>
-      <a class="nav-btn" href="#contact">Contact</a>
-      <a class="cta-btn" href="cv.pdf" download aria-label="Download CV">Download CV</a>
-      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">🌙</button>
-    </nav>
+      <nav aria-label="Main Navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
+        <a href="#contact" class="nav-link">Contact</a>
+
+        <a href="cv.pdf" download class="resume-btn" aria-label="Download CV">Download CV</a>
+
+        <button id="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section id="home" class="hero container fade-in">
-      <div class="hero-left">
+  <!-- Hero Section -->
+  <section class="hero-section fade-in" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
         <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
-        <p id="typewriter" class="typewriter" aria-live="polite"></p>
-        <p class="lead">Student · Web dev · Cybersecurity tinkerer</p>
-        <div class="hero-actions">
-          <a class="soft-btn" href="#projects">Projects</a>
-          <a class="soft-btn" href="#certificates">Certificates</a>
+        <p class="typewriter" id="typewriter" aria-live="polite" aria-atomic="true"></p>
+        <a href="#projects" class="cta-btn">View My Projects</a>
+      </div>
+      <div class="hero-logo">
+        <div class="logo-container-hero" aria-hidden="true">
+          <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo" />
         </div>
       </div>
-
-      <div class="hero-right" aria-hidden="true">
-        <div class="logo-big">
-          <img src="static/images/logo.png" alt="" />
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section container fade-in">
-      <h2 class="section-title">Skills</h2>
-      <div class="skills-grid">
-        <div class="skill">
-          <div class="skill-head">HTML <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">CSS <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">JavaScript <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="60%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">Python <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="60%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">C / C++ <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">Cybersecurity <span class="skill-level">Practicals</span></div>
-          <div class="bar"><div class="bar-fill" data-width="35%"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section container fade-in">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-        <article class="project-card">
-          <h3>AI Writing Artifact</h3>
-          <p class="muted">Public artifact demo</p>
-          <a class="link" href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" rel="noopener">Open</a>
-        </article>
-
-        <article class="project-card">
-          <h3>Claude Artifact 2</h3>
-          <p class="muted">Public artifact demo</p>
-          <a class="link" href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" rel="noopener">Open</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- CERTIFICATES -->
-    <section id="certificates" class="section container fade-in">
-      <h2 class="section-title">Certificates</h2>
-      <p class="muted">Click a card to preview. Use ← → and ESC in the lightbox.</p>
-
-      <div id="cert-grid" class="cert-grid" aria-live="polite">
-        <button class="cert-card" data-src="static/certs/_certificate_aaryanbastola221-gmail-com_7354cbbe-1d15-419a-9dcc-c28a25c1d13d.pdf" data-title="Ethical Hacker">
-          <div class="cert-thumb" aria-hidden="true"><i class="fa-regular fa-file-pdf fa-2x"></i></div>
-          <div class="cert-meta"><div class="cert-name">Ethical Hacker</div><div class="cert-actions muted">Preview / Download</div></div>
-        </button>
-
-        <button class="cert-card" data-src="static/certs/_certificate_aaryanbastola221-gmail-com_528379cc-5ed9-488b-9eb1-6d9440bdf1be.pdf" data-title="Networking Basics">
-          <div class="cert-thumb" aria-hidden="true"><i class="fa-regular fa-file-pdf fa-2x"></i></div>
-          <div class="cert-meta"><div class="cert-name">Networking Basics</div><div class="cert-actions muted">Preview / Download</div></div>
-        </button>
-
-        <button class="cert-card" data-src="static/certs/_certificate_aaryanbastola221-gmail-com_d298558a-62ef-4702-8172-eeaf3aff6ea8.pdf" data-title="Intro to Cybersecurity">
-          <div class="cert-thumb" aria-hidden="true"><i class="fa-regular fa-file-pdf fa-2x"></i></div>
-          <div class="cert-meta"><div class="cert-name">Intro to Cybersecurity</div><div class="cert-actions muted">Preview / Download</div></div>
-        </button>
-
-        <button class="cert-card" data-src="static/certs/_certificate_aaryanbastola221-gmail-com_fca4a681-d938-445a-bb12-eaab749d42eb.pdf" data-title="IoT & Digital Transformation">
-          <div class="cert-thumb" aria-hidden="true"><i class="fa-regular fa-file-pdf fa-2x"></i></div>
-          <div class="cert-meta"><div class="cert-name">IoT & Digital Transformation</div><div class="cert-actions muted">Preview / Download</div></div>
-        </button>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section container fade-in">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-grid">
-        <a class="contact-card" href="mailto:aaryanbastola221@gmail.com"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
-        <a class="contact-card" href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
-        <a class="contact-card" href="https://github.com/aaryanbastola" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Surprise button -->
-  <button id="surprise" class="surprise-btn" aria-haspopup="dialog">Curious? Click me ✨</button>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Certificate preview">
-    <button id="lb-close" class="lb-close" aria-label="Close preview">&times;</button>
-    <button id="lb-prev" class="lb-nav lb-prev" aria-label="Previous">&#10094;</button>
-
-    <div class="lb-body">
-      <iframe id="lb-frame" title="Certificate preview" sandbox="allow-same-origin allow-forms"></iframe>
-      <a id="lb-open" class="lb-open" target="_blank" rel="noopener">Open in new tab</a>
-      <div id="lb-title" class="lb-title"></div>
     </div>
+  </section>
 
-    <button id="lb-next" class="lb-nav lb-next" aria-label="Next">&#10095;</button>
-  </div>
+  <!-- Skills Section -->
+  <section class="skills-section fade-in" id="skills" tabindex="0" aria-labelledby="skills-title">
+    <div class="container">
+      <h2 id="skills-title" class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-bar">
+          <span class="skill-title">HTML <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">CSS <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">JavaScript <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">React.js <span class="skill-level">— Learning</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">Python <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">Cybersecurity <span class="skill-level">— Beginner / Practicals</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="35%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">C <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">C++ <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Projects Section -->
+  <section class="projects-section fade-in" id="projects" tabindex="0" aria-labelledby="projects-title">
+    <div class="container">
+      <h2 id="projects-title" class="section-title">My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>AI Writing Artifact</h3>
+          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Claude Artifact 2</h3>
+          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section class="certificates-section fade-in" id="certificates" tabindex="0" aria-labelledby="certs-title">
+    <div class="container">
+      <h2 id="certs-title" class="section-title">Certificates</h2>
+
+      <p class="certs-intro">Click any certificate to view or download. Place the files in the same folder (or `certs/`).</p>
+
+      <div class="certs-grid">
+        <div class="cert-card">
+          <h4>Ethical Hacker</h4>
+          <a href="_certificate_aaryanbastola221-gmail-com_7354cbbe-1d15-419a-9dcc-c28a25c1d13d.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Networking Basics</h4>
+          <a href="_certificate_aaryanbastola221-gmail-com_528379cc-5ed9-488b-9eb1-6d9440bdf1be.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Introduction to Cybersecurity</h4>
+          <a href="_certificate_aaryanbastola221-gmail-com_d298558a-62ef-4702-8172-eeaf3aff6ea8.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Introduction to IoT and Digital Transformation</h4>
+          <a href="_certificate_aaryanbastola221-gmail-com_fca4a681-d938-445a-bb12-eaab749d42eb.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section fade-in" id="contact" tabindex="0">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-info">
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:aaryanbastola221@gmail.com">Email Me</a>
+        </p>
+        <p>
+          <i class="fab fa-linkedin"></i>
+          <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </p>
+        <p>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Easter Egg Modal -->
+  <dialog id="easter-egg" role="alertdialog" aria-modal="true" aria-labelledby="egg-title" aria-describedby="egg-desc">
+    <h3 id="egg-title">🎉 Surprise! 🎉</h3>
+    <p id="egg-desc">You found the hidden Easter egg! Keep up the great work! 🚀</p>
+    <button id="egg-close" aria-label="Close">Close</button>
+  </dialog>
+
+  <!-- JavaScript -->
   <script src="script.js" defer></script>
 </body>
 </html>
