@@ -24,21 +24,25 @@ if (savedTheme) {
 }
 
 // Listen for system theme changes (only if no manual user override)
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  if (!localStorage.getItem('theme')) {
-    const newTheme = e.matches ? 'dark' : 'light';
-    setDataTheme(newTheme);
-    themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-  }
-});
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      const newTheme = e.matches ? 'dark' : 'light';
+      setDataTheme(newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+    }
+  });
+}
 
 // On toggle button click
-themeToggle.addEventListener('click', () => {
-  const currentTheme = root.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  setDataTheme(newTheme);
-  themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-});
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = root.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setDataTheme(newTheme);
+    themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+  });
+}
 
 // TYPEWRITER EFFECT
 const typewriter = document.getElementById('typewriter');
@@ -55,17 +59,17 @@ const typeSpeed = 100;
 
 function typeEffect() {
   const currentPhrase = phrases[phraseIndex];
-  let displayedText;
+  let displayedText = '';
 
   if (isDeleting) {
-    charIndex--;
+    charIndex = Math.max(0, charIndex - 1);
     displayedText = currentPhrase.substring(0, charIndex);
   } else {
-    charIndex++;
+    charIndex = Math.min(currentPhrase.length, charIndex + 1);
     displayedText = currentPhrase.substring(0, charIndex);
   }
 
-  typewriter.textContent = displayedText;
+  if (typewriter) typewriter.textContent = displayedText;
 
   if (!isDeleting && charIndex === currentPhrase.length) {
     setTimeout(() => {
@@ -115,7 +119,11 @@ const skillSection = document.getElementById('skills');
 const animateSkillBars = () => {
   skillBars.forEach(bar => {
     const targetWidth = bar.getAttribute('data-width');
-    bar.style.width = targetWidth;
+    if (/^\d+%$/.test(targetWidth)) {
+      bar.style.width = targetWidth;
+    } else {
+      bar.style.width = '50%';
+    }
   });
 };
 
@@ -142,14 +150,9 @@ const shape1 = document.querySelector('.shape1');
 const shape2 = document.querySelector('.shape2');
 
 window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-
-  if (shape1) {
-    shape1.style.transform = `translateY(${scrollY * 0.4}px)`;
-  }
-  if (shape2) {
-    shape2.style.transform = `translateY(${scrollY * 0.2}px)`;
-  }
+  const scrollY = window.scrollY || window.pageYOffset;
+  if (shape1) shape1.style.transform = `translateY(${scrollY * 0.4}px)`;
+  if (shape2) shape2.style.transform = `translateY(${scrollY * 0.2}px)`;
 });
 
 // EASTER EGG: CLICK 5 TIMES ON LOGO TO REVEAL MODAL
@@ -161,28 +164,39 @@ const requiredClicks = 5;
 const clickTimeout = 2000; // 2 seconds reset
 let clickTimer;
 
-logo.addEventListener('click', () => {
-  clickCount++;
-  if (clickCount === requiredClicks) {
-    easterEgg.showModal();
-    clickCount = 0;
-    clearTimeout(clickTimer);
-  } else {
-    clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => {
+if (logo) {
+  logo.addEventListener('click', () => {
+    clickCount++;
+    if (clickCount === requiredClicks) {
+      if (typeof easterEgg.showModal === 'function') {
+        easterEgg.showModal();
+      } else {
+        easterEgg.style.display = 'block';
+      }
       clickCount = 0;
-    }, clickTimeout);
-  }
-});
+      clearTimeout(clickTimer);
+    } else {
+      clearTimeout(clickTimer);
+      clickTimer = setTimeout(() => {
+        clickCount = 0;
+      }, clickTimeout);
+    }
+  });
 
-// Accessibility: Allow Enter/Space key trigger for logo Easter egg
-logo.addEventListener('keydown', e => {
-  if (e.key === 'Enter' || e.key === ' ') {
-    e.preventDefault();
-    logo.click();
-  }
-});
+  logo.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      logo.click();
+    }
+  });
+}
 
-eggCloseBtn.addEventListener('click', () => {
-  easterEgg.close();
-});
+if (eggCloseBtn) {
+  eggCloseBtn.addEventListener('click', () => {
+    if (typeof easterEgg.close === 'function') {
+      easterEgg.close();
+    } else {
+      easterEgg.style.display = 'none';
+    }
+  });
+}
