@@ -13,7 +13,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
 
-  <!-- Resume download link in header (referenced in CSS for style) -->
 </head>
 <body>
 
@@ -30,23 +29,21 @@
   <!-- Header -->
   <header class="main-header">
     <div class="container header-flex">
-      
-      <!-- Circular logo with ambient glow -->
       <div class="logo-container" tabindex="0" aria-label="Site Logo" id="logo">
         <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo" />
       </div>
 
-      <nav>
+      <nav aria-label="Main Navigation">
         <a href="#home" class="nav-link">Home</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
         <a href="#contact" class="nav-link">Contact</a>
 
-        <a href="cv.pdf" download class="resume-btn" aria-label="Download Resume">Download Resume</a>
+        <a href="cv.pdf" download class="resume-btn" aria-label="Download CV">Download CV</a>
 
         <button id="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
       </nav>
-
     </div>
   </header>
 
@@ -67,34 +64,50 @@
   </section>
 
   <!-- Skills Section -->
-  <section class="skills-section fade-in" id="skills" tabindex="0">
+  <section class="skills-section fade-in" id="skills" tabindex="0" aria-labelledby="skills-title">
     <div class="container">
-      <h2 class="section-title">Skills</h2>
+      <h2 id="skills-title" class="section-title">Skills</h2>
       <div class="skills-grid">
         <div class="skill-bar">
-          <span class="skill-title">JavaScript</span>
+          <span class="skill-title">HTML <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">CSS <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">JavaScript <span class="skill-level">— Intermediate</span></span>
           <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
         </div>
         <div class="skill-bar">
-          <span class="skill-title">React.js</span>
+          <span class="skill-title">React.js <span class="skill-level">— Learning</span></span>
           <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
         </div>
         <div class="skill-bar">
-          <span class="skill-title">Python</span>
+          <span class="skill-title">Python <span class="skill-level">— Intermediate</span></span>
           <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
         </div>
         <div class="skill-bar">
-          <span class="skill-title">Cybersecurity</span>
+          <span class="skill-title">Cybersecurity <span class="skill-level">— Beginner / Practicals</span></span>
           <div class="bar-bg"><div class="bar-fill" data-width="35%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">C <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-title">C++ <span class="skill-level">— Intermediate</span></span>
+          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section class="projects-section fade-in" id="projects" tabindex="0">
+  <section class="projects-section fade-in" id="projects" tabindex="0" aria-labelledby="projects-title">
     <div class="container">
-      <h2 class="section-title">My Projects</h2>
+      <h2 id="projects-title" class="section-title">My Projects</h2>
       <div class="projects-grid">
         <div class="project-card">
           <h3>AI Writing Artifact</h3>
@@ -103,6 +116,37 @@
         <div class="project-card">
           <h3>Claude Artifact 2</h3>
           <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section class="certificates-section fade-in" id="certificates" tabindex="0" aria-labelledby="certs-title">
+    <div class="container">
+      <h2 id="certs-title" class="section-title">Certificates</h2>
+
+      <p class="certs-intro">Click any certificate to view or download. Place the files in the same folder (or `certs/`).</p>
+
+      <div class="certs-grid">
+        <div class="cert-card">
+          <h4>Ethical Hacker</h4>
+          <a href="_certificate_aaryanbastola221-gmail-com_7354cbbe-1d15-419a-9dcc-c28a25c1d13d.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Networking Basics</h4>
+          <a href="_certificate_aaryanbastola221-gmail-com_528379cc-5ed9-488b-9eb1-6d9440bdf1be.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Introduction to Cybersecurity</h4>
+          <a href="_certificate_aaryanbastola221-gmail-com_d298558a-62ef-4702-8172-eeaf3aff6ea8.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Introduction to IoT and Digital Transformation</h4>
+          <a href="_certificate_aaryanbastola221-gmail-com_fca4a681-d938-445a-bb12-eaab749d42eb.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
         </div>
       </div>
     </div>
