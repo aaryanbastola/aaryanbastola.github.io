@@ -11,12 +11,8 @@
 </head>
 <body>
   <div class="parallax-bg" aria-hidden="true">
-    <svg class="bg-shape shape1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="300" cy="300" r="300" fill="rgba(0,188,212,0.08)"/>
-    </svg>
-    <svg class="bg-shape shape2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-      <rect width="500" height="500" rx="250" fill="rgba(0,188,212,0.04)"/>
-    </svg>
+    <svg class="bg-shape shape1" viewBox="0 0 600 600"><circle cx="300" cy="300" r="300" fill="rgba(0,188,212,0.08)"/></svg>
+    <svg class="bg-shape shape2" viewBox="0 0 500 500"><rect width="500" height="500" rx="250" fill="rgba(0,188,212,0.04)"/></svg>
   </div>
 
   <header class="main-header container">
@@ -24,7 +20,6 @@
       <div id="logo" class="logo-container" tabindex="0" aria-label="Site Logo">
         <img src="/static/images/logo.png" alt="Aaryan Bastola Logo" class="site-logo" />
       </div>
-      <h1 class="sr-only">Aaryan Bastola Portfolio</h1>
     </div>
 
     <nav class="nav" aria-label="Main navigation">
@@ -34,13 +29,11 @@
       <a class="nav-btn" href="#certificates">Certificates</a>
       <a class="nav-btn" href="#contact">Contact</a>
       <a class="cta-btn" href="/static/cv.pdf" download aria-label="Download CV">Download CV</a>
-
       <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
     <section id="home" class="hero container fade-in">
       <div class="hero-left">
         <h2>Hi, I'm <span class="highlight">Aaryan Bastola</span></h2>
@@ -53,83 +46,59 @@
       </div>
 
       <div class="hero-right" aria-hidden="true">
-        <div class="logo-big">
-          <img src="/static/images/logo.png" alt="" />
-        </div>
+        <div class="logo-big"><img src="/static/images/logo.png" alt="" /></div>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" class="section container fade-in">
       <h3 class="section-title">Skills</h3>
       <div class="skills-grid">
-        <div class="skill">
-          <div class="skill-head">HTML <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">CSS <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">JavaScript <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="60%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">Python <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="60%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">C / C++ <span class="skill-level">Intermediate</span></div>
-          <div class="bar"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-head">Cybersecurity <span class="skill-level">Practicals</span></div>
-          <div class="bar"><div class="bar-fill" data-width="35%"></div></div>
-        </div>
+        <div class="skill"><div class="skill-head">HTML <span class="skill-level">Intermediate</span></div><div class="bar"><div class="bar-fill" data-width="65%"></div></div></div>
+        <div class="skill"><div class="skill-head">CSS <span class="skill-level">Intermediate</span></div><div class="bar"><div class="bar-fill" data-width="65%"></div></div></div>
+        <div class="skill"><div class="skill-head">JavaScript <span class="skill-level">Intermediate</span></div><div class="bar"><div class="bar-fill" data-width="60%"></div></div></div>
+        <div class="skill"><div class="skill-head">Python <span class="skill-level">Intermediate</span></div><div class="bar"><div class="bar-fill" data-width="60%"></div></div></div>
+        <div class="skill"><div class="skill-head">C / C++ <span class="skill-level">Intermediate</span></div><div class="bar"><div class="bar-fill" data-width="65%"></div></div></div>
+        <div class="skill"><div class="skill-head">Cybersecurity <span class="skill-level">Practicals</span></div><div class="bar"><div class="bar-fill" data-width="35%"></div></div></div>
       </div>
     </section>
 
-    <!-- PROJECTS (button removed as requested; keep project cards) -->
     <section id="projects" class="section container fade-in">
       <h3 class="section-title">Projects</h3>
       <div class="projects-grid">
-        <article class="project-card">
-          <h4>AI Writing Artifact</h4>
-          <p class="muted">Demo / public artifact</p>
-          <a class="link" href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" rel="noopener">Open</a>
-        </article>
+        <article class="project-card"><h4>AI Writing Artifact</h4><p class="muted">Demo / public artifact</p><a class="link" href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" rel="noopener">Open</a></article>
 
-        <article class="project-card">
-          <h4>Claude Artifact 2</h4>
-          <p class="muted">Demo / public artifact</p>
-          <a class="link" href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" rel="noopener">Open</a>
-        </article>
+        <article class="project-card"><h4>Claude Artifact 2</h4><p class="muted">Demo / public artifact</p><a class="link" href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" rel="noopener">Open</a></article>
       </div>
     </section>
 
-    <!-- CERTIFICATES with LIGHTBOX -->
     <section id="certificates" class="section container fade-in">
       <h3 class="section-title">Certificates</h3>
       <p class="muted">Click any card to preview. Use arrows or keyboard ← → to navigate. ESC to close.</p>
 
       <div id="cert-grid" class="cert-grid" aria-live="polite">
-        <!-- Certificate cards populated server-side or by JS -->
-        {% for cert in certificates %}
-          <button class="cert-card" data-src="{{ url_for('static', filename='certs/' + cert) }}" data-title="{{ cert }}">
-            <div class="cert-thumb" aria-hidden="true">
-              <i class="fa-regular fa-file-pdf fa-3x"></i>
-            </div>
-            <div class="cert-meta">
-              <div class="cert-name">{{ cert | replace('_', ' ') }}</div>
-              <div class="cert-actions muted">Preview / Download</div>
-            </div>
-          </button>
-        {% endfor %}
+        <!-- Replace filenames if yours differ; exact names required -->
+        <button class="cert-card" data-src="/static/certs/_certificate_aaryanbastola221-gmail-com_7354cbbe-1d15-419a-9dcc-c28a25c1d13d.pdf" data-title="Ethical Hacker">
+          <div class="cert-thumb"><i class="fa-regular fa-file-pdf fa-2x"></i></div>
+          <div class="cert-meta"><div class="cert-name">Ethical Hacker</div><div class="cert-actions muted">Preview / Download</div></div>
+        </button>
+
+        <button class="cert-card" data-src="/static/certs/_certificate_aaryanbastola221-gmail-com_528379cc-5ed9-488b-9eb1-6d9440bdf1be.pdf" data-title="Networking Basics">
+          <div class="cert-thumb"><i class="fa-regular fa-file-pdf fa-2x"></i></div>
+          <div class="cert-meta"><div class="cert-name">Networking Basics</div><div class="cert-actions muted">Preview / Download</div></div>
+        </button>
+
+        <button class="cert-card" data-src="/static/certs/_certificate_aaryanbastola221-gmail-com_d298558a-62ef-4702-8172-eeaf3aff6ea8.pdf" data-title="Intro to Cybersecurity">
+          <div class="cert-thumb"><i class="fa-regular fa-file-pdf fa-2x"></i></div>
+          <div class="cert-meta"><div class="cert-name">Intro to Cybersecurity</div><div class="cert-actions muted">Preview / Download</div></div>
+        </button>
+
+        <button class="cert-card" data-src="/static/certs/_certificate_aaryanbastola221-gmail-com_fca4a681-d938-445a-bb12-eaab749d42eb.pdf" data-title="IoT & Digital Transformation">
+          <div class="cert-thumb"><i class="fa-regular fa-file-pdf fa-2x"></i></div>
+          <div class="cert-meta"><div class="cert-name">IoT & Digital Transformation</div><div class="cert-actions muted">Preview / Download</div></div>
+        </button>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section container fade-in">
       <h3 class="section-title">Contact</h3>
       <div class="contact-grid">
@@ -140,15 +109,14 @@
     </section>
   </main>
 
-  <!-- EASTER EGG (updated text) -->
   <button id="surprise" class="surprise-btn" aria-haspopup="dialog">Curious? Click me ✨</button>
 
-  <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Certificate preview">
     <button id="lb-close" class="lb-close" aria-label="Close preview">&times;</button>
     <button id="lb-prev" class="lb-nav lb-prev" aria-label="Previous">&#10094;</button>
     <div class="lb-body">
-      <iframe id="lb-frame" title="Certificate preview" sandbox="allow-scripts allow-same-origin"></iframe>
+      <iframe id="lb-frame" title="Certificate preview" sandbox="allow-same-origin allow-forms"></iframe>
+      <a id="lb-open" class="lb-open" target="_blank" rel="noopener">Open in new tab</a>
       <div id="lb-title" class="lb-title"></div>
     </div>
     <button id="lb-next" class="lb-nav lb-next" aria-label="Next">&#10095;</button>
