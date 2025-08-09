@@ -1,123 +1,409 @@
-/* ===== Global Dark Theme ===== */
+:root {
+  --bg-dark: #121212;
+  --bg-light: #f5f5f5;
+  --text-dark: #ffffff;
+  --text-light: #000000;
+  --accent: #00bcd4;
+  --parallax-speed1: 0.4;
+  --parallax-speed2: 0.2;
+}
+
+[data-theme="dark"] {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+[data-theme="light"] {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
 body {
-    background: linear-gradient(135deg, #121212, #1E1E1E);
-    color: #F5F5F5; /* softer off-white for readability */
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* ===== Headings ===== */
-h1, h2, h3, h4, h5, h6 {
-    color: #BA8225;
-    letter-spacing: 1px;
-    font-weight: bold;
+/* Parallax Background */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+  pointer-events: none;
+  z-index: -1;
 }
 
-h1 {
-    font-size: 3rem;
+.bg-shape {
+  position: absolute;
+  filter: blur(40px);
+  user-select: none;
+  will-change: transform;
 }
 
-h1.name-logo {
-    font-size: 3.5rem; /* Larger name/logo */
-    font-weight: 800;
+.shape1 {
+  top: -150px;
+  left: -150px;
+  width: 600px;
+  height: 600px;
 }
 
-/* ===== Hero Section ===== */
-.hero {
-    text-align: center;
-    padding: 6rem 1rem;
+.shape2 {
+  bottom: -200px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
 }
 
-.hero .tagline {
-    font-size: 1.3rem;
-    color: #D8B46F;
-    margin-top: 0.5rem;
+/* Container helper */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  position: relative; /* To keep content above background */
+  z-index: 1;
 }
 
-/* ===== Cards ===== */
-.card {
-    background-color: rgba(26, 26, 26, 0.9);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease;
+/* Header */
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+/* Circular logo container with ambient glow */
+.logo-container {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: visible;
+  position: relative;
+  cursor: pointer;
+  outline-offset: 4px;
+  user-select: none;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
 
-/* ===== Buttons ===== */
-button, .btn {
-    background-color: #BA8225;
-    color: #121212;
-    border: none;
-    padding: 0.7rem 1.4rem;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.logo-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 188, 212, 0.35) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(20px);
+  z-index: -1;
+  animation: ambientGlow 4s ease-in-out infinite alternate;
 }
 
-button:hover, .btn:hover {
-    background-color: #D8B46F;
-    box-shadow: 0 0 12px rgba(186, 130, 37, 0.7);
-    transform: scale(1.05);
+.logo-container:focus {
+  outline: 3px solid var(--accent);
+  transform: scale(1.05);
 }
 
-/* ===== Links ===== */
-a {
-    color: #BA8225;
-    text-decoration: none;
-    transition: all 0.3s ease;
+.logo-container:hover {
+  transform: scale(1.05);
 }
 
-a:hover {
-    color: #FFD37A;
-    text-shadow: 0 0 8px rgba(186, 130, 37, 0.8);
+/* Circular logo for hero with bigger glow */
+.logo-container-hero {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: visible;
+  position: relative;
+  user-select: none;
+  width: 200px;
+  height: 200px;
 }
 
-/* ===== Images Hover Animation ===== */
-img {
-    transition: transform 0.4s ease;
+.logo-container-hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 188, 212, 0.25) 0%,
+    transparent 75%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(30px);
+  z-index: -1;
+  animation: ambientGlow 6s ease-in-out infinite alternate;
 }
 
-img:hover {
-    transform: scale(1.05);
+.site-logo,
+.main-logo {
+  border-radius: 50%;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* ===== Fade-in Animations ===== */
+/* Ambient glow animation */
+@keyframes ambientGlow {
+  0% {
+    filter: blur(15px);
+    opacity: 0.7;
+  }
+  50% {
+    filter: blur(25px);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(15px);
+    opacity: 0.7;
+  }
+}
+
+/* Navigation styles */
+.nav-link {
+  margin: 0 10px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-left: 10px;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.resume-btn {
+  padding: 8px 15px;
+  background: var(--accent);
+  color: white;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.resume-btn:hover,
+.resume-btn:focus {
+  background-color: #009bbf;
+  outline: none;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 600px;
+  flex: 1 1 300px;
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  background: #009bbf;
+  outline: none;
+}
+
+.hero-logo {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Skills and Projects */
+.skills-grid,
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Skill Bar */
+.skill-bar {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bar-bg {
+  background: #ccc;
+  height: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+  overflow: hidden;
+}
+
+.bar-fill {
+  background: var(--accent);
+  height: 100%;
+  border-radius: 5px;
+  width: 0; /* will animate from 0 */
+  transition: width 1.2s ease-in-out;
+}
+
+/* Project Card */
+.project-card {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.project-card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-card a:hover,
+.project-card a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Certificates */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.cert-card {
+  background: rgba(0, 0, 0, 0.04);
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.cert-card h4 {
+  margin: 0 0 8px;
+}
+
+.cert-card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cert-card a:hover, .cert-card a:focus {
+  text-decoration: underline;
+}
+
+/* Fade-in animation */
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ===== Social Icons ===== */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+/* Typewriter effect */
+.typewriter {
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-height: 1.5em;
 }
 
-.social-icons a {
-    font-size: 1.5rem;
-    color: #BA8225;
-    transition: transform 0.3s ease, color 0.3s ease;
+/* Easter Egg dialog styling */
+dialog#easter-egg {
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  border: none;
+  max-width: 300px;
+  width: 80vw;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background: var(--bg-light);
+  color: var(--text-light);
 }
 
-.social-icons a:hover {
-    color: #FFD37A;
-    transform: scale(1.2);
+[data-theme="dark"] dialog#easter-egg {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+#easter-egg h3 {
+  margin-top: 0;
+}
+
+#egg-close {
+  margin-top: 1rem;
+  padding: 8px 15px;
+  background: var(--accent);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#egg-close:hover,
+#egg-close:focus {
+  background-color: #009bbf;
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-logo {
+    margin-top: 20px;
+  }
 }
