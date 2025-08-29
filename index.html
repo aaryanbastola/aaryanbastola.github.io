@@ -15,14 +15,10 @@
 </head>
 <body>
 
-  <!-- Parallax Background Container -->
+  <!-- Parallax Background -->
   <div class="parallax-bg" aria-hidden="true">
-    <svg class="bg-shape shape1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="300" cy="300" r="300" fill="rgba(0,188,212,0.1)"/>
-    </svg>
-    <svg class="bg-shape shape2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-      <rect width="500" height="500" rx="250" fill="rgba(0,188,212,0.05)"/>
-    </svg>
+    <svg class="bg-shape shape1" viewBox="0 0 600 600"><circle cx="300" cy="300" r="300" fill="rgba(0,188,212,0.1)"/></svg>
+    <svg class="bg-shape shape2" viewBox="0 0 500 500"><rect width="500" height="500" rx="250" fill="rgba(0,188,212,0.05)"/></svg>
   </div>
 
   <!-- Header -->
@@ -38,9 +34,8 @@
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#certificates" class="nav-link">Certificates</a>
         <a href="#contact" class="nav-link">Contact</a>
-
-        <a href="cv.pdf" download class="resume-btn" aria-label="Download CV">Download CV</a>
-        <button id="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
+        <a href="cv.pdf" download class="resume-btn">Download CV</a>
+        <button id="theme-toggle">🌙</button>
       </nav>
     </div>
   </header>
@@ -50,129 +45,74 @@
     <div class="container hero-content">
       <div class="hero-text">
         <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
-        <p class="typewriter" id="typewriter" aria-live="polite" aria-atomic="true"></p>
+        <p class="typewriter" id="typewriter"></p>
         <a href="#projects" class="cta-btn">View My Projects</a>
       </div>
       <div class="hero-logo">
-        <div class="logo-container-hero" aria-hidden="true">
+        <div class="logo-container-hero">
           <img src="logo.png" alt="Aaryan Bastola Logo" class="main-logo" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section class="skills-section fade-in" id="skills" tabindex="0" aria-labelledby="skills-title">
+  <!-- Skills -->
+  <section class="skills-section fade-in" id="skills">
     <div class="container">
-      <h2 id="skills-title" class="section-title">Skills</h2>
+      <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
-        <div class="skill-bar">
-          <span class="skill-title">HTML <span class="skill-level">— Intermediate</span></span>
-          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <span class="skill-title">CSS <span class="skill-level">— Intermediate</span></span>
-          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <span class="skill-title">JavaScript <span class="skill-level">— Intermediate</span></span>
-          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <span class="skill-title">React.js <span class="skill-level">— Learning</span></span>
-          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <span class="skill-title">Python <span class="skill-level">— Intermediate</span></span>
-          <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <span class="skill-title">Cybersecurity <span class="skill-level">— Beginner / Practicals</span></span>
-          <div class="bar-bg"><div class="bar-fill" data-width="35%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <span class="skill-title">C <span class="skill-level">— Intermediate</span></span>
-          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <span class="skill-title">C++ <span class="skill-level">— Intermediate</span></span>
-          <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
-        </div>
+        <div class="skill-bar"><span class="skill-title">HTML — Intermediate</span><div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div></div>
+        <div class="skill-bar"><span class="skill-title">CSS — Intermediate</span><div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div></div>
+        <div class="skill-bar"><span class="skill-title">JavaScript — Intermediate</span><div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div></div>
+        <div class="skill-bar"><span class="skill-title">React.js — Learning</span><div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div></div>
+        <div class="skill-bar"><span class="skill-title">Python — Intermediate</span><div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div></div>
+        <div class="skill-bar"><span class="skill-title">Cybersecurity — Beginner</span><div class="bar-bg"><div class="bar-fill" data-width="35%"></div></div></div>
+        <div class="skill-bar"><span class="skill-title">C — Intermediate</span><div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div></div>
+        <div class="skill-bar"><span class="skill-title">C++ — Intermediate</span><div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="projects-section fade-in" id="projects" tabindex="0" aria-labelledby="projects-title">
+  <!-- Projects -->
+  <section class="projects-section fade-in" id="projects">
     <div class="container">
-      <h2 id="projects-title" class="section-title">My Projects</h2>
+      <h2 class="section-title">My Projects</h2>
       <div class="projects-grid">
-        <div class="project-card">
-          <h3>AI Writing Artifact</h3>
-          <a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank" rel="noopener noreferrer">View Project</a>
-        </div>
-        <div class="project-card">
-          <h3>Claude Artifact 2</h3>
-          <a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank" rel="noopener noreferrer">View Project</a>
-        </div>
+        <div class="project-card"><h3>AI Writing Artifact</h3><a href="https://claude.ai/public/artifacts/c5a02d50-af95-4b01-94fb-97abf673c6b8" target="_blank">View Project</a></div>
+        <div class="project-card"><h3>Claude Artifact 2</h3><a href="https://claude.ai/public/artifacts/74d78379-9a18-4217-b4f3-7a98e2abe23d" target="_blank">View Project</a></div>
       </div>
     </div>
   </section>
 
-  <!-- Certificates Section -->
-  <section class="certificates-section fade-in" id="certificates" tabindex="0" aria-labelledby="certs-title">
+  <!-- Certificates -->
+  <section class="certificates-section fade-in" id="certificates">
     <div class="container">
-      <h2 id="certs-title" class="section-title">Certificates</h2>
-      <p class="certs-intro">Click any certificate to view or download.</p>
-
+      <h2 class="section-title">Certificates</h2>
       <div class="certs-grid">
-        <div class="cert-card">
-          <h4>Ethical Hacker — Certificate 1</h4>
-          <a href="certs/certificate1.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
-        </div>
-
-        <div class="cert-card">
-          <h4>Ethical Hacker — Certificate 2</h4>
-          <a href="certs/certificate2.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
-        </div>
-
-        <div class="cert-card">
-          <h4>Ethical Hacker — Certificate 3</h4>
-          <a href="certs/certificate3.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
-        </div>
+        <div class="cert-card"><h4>Ethical Hacker — Certificate 1</h4><a href="certs/certificate1.pdf" target="_blank" download>Open / Download</a></div>
+        <div class="cert-card"><h4>Ethical Hacker — Certificate 2</h4><a href="certs/certificate2.pdf" target="_blank" download>Open / Download</a></div>
+        <div class="cert-card"><h4>Ethical Hacker — Certificate 3</h4><a href="certs/certificate3.pdf" target="_blank" download>Open / Download</a></div>
+        <div class="cert-card"><h4>New Certificate</h4><a href="certs/certificate4.pdf" target="_blank" download>Open / Download</a></div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact-section fade-in" id="contact" tabindex="0">
+  <!-- Contact -->
+  <section class="contact-section fade-in" id="contact">
     <div class="container">
       <h2 class="section-title">Contact Me</h2>
       <div class="contact-info">
-        <p>
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:aaryanbastola221@gmail.com">Email Me</a>
-        </p>
-        <p>
-          <i class="fab fa-linkedin"></i>
-          <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </p>
-        <p>
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:aaryanbastola221@gmail.com">Email Me</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aaryanbastola" target="_blank">LinkedIn</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/aaryanbastola" target="_blank">GitHub</a></p>
       </div>
     </div>
   </section>
 
   <!-- Easter Egg Modal -->
-  <dialog id="easter-egg" role="alertdialog" aria-modal="true" aria-labelledby="egg-title" aria-describedby="egg-desc">
-    <h3 id="egg-title">🎉 Surprise! 🎉</h3>
-    <p id="egg-desc">You found the hidden Easter egg! Keep up the great work! 🚀</p>
-    <button id="egg-close" aria-label="Close">Close</button>
-  </dialog>
+  <dialog id="easter-egg"><h3>🎉 Surprise! 🎉</h3><p>You found the hidden Easter egg! 🚀</p><button id="egg-close">Close</button></dialog>
 
-  <!-- JavaScript -->
+  <!-- JS -->
   <script src="script.js" defer></script>
 </body>
 </html>
