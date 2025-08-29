@@ -6,11 +6,12 @@ Ensures cv.pdf exists and certificates are placed in ./certs/
 
 import os, shutil
 
+# Map uploaded source → target filename
 SOURCE_TO_TARGET = {
-    "4c28bef3-28b2-4209-b7c7-04f8d24220c6.pdf": "certificate1.pdf",
-    "7ffb3b55-9e78-4888-ab95-98243c4e1d0e.pdf": "certificate2.pdf",
-    "470a25e2-5981-47ec-ae04-50a23bf1f58a.pdf": "certificate3.pdf",
-    "C:\\Users\\LENOVO\\Downloads\\cert.pdf": "certificate4.pdf"
+    "4c28bef3-28b2-4209-b7c7-04f8d24220c6.pdf": "certificate1.pdf",  # Networking Basics
+    "7ffb3b55-9e78-4888-ab95-98243c4e1d0e.pdf": "certificate2.pdf",  # IoT & Digital Transformation
+    "470a25e2-5981-47ec-ae04-50a23bf1f58a.pdf": "certificate3.pdf",  # Ethical Hacker
+    "C:\\Users\\LENOVO\\Downloads\\cert.pdf": "certificate4.pdf",     # Intro to Cybersecurity
 }
 
 POSSIBLE_CV_NAMES = [
