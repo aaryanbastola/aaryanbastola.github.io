@@ -16,11 +16,11 @@ function getSystemTheme() {
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   setDataTheme(savedTheme);
-  themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+  if (themeToggle) themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 } else {
   const sysTheme = getSystemTheme();
   setDataTheme(sysTheme);
-  themeToggle.textContent = sysTheme === 'dark' ? '🌙' : '☀️';
+  if (themeToggle) themeToggle.textContent = sysTheme === 'dark' ? '🌙' : '☀️';
 }
 
 // Listen for system theme changes (only if no manual user override)
@@ -29,7 +29,7 @@ if (window.matchMedia) {
     if (!localStorage.getItem('theme')) {
       const newTheme = e.matches ? 'dark' : 'light';
       setDataTheme(newTheme);
-      themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+      if (themeToggle) themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
     }
   });
 }
@@ -95,10 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // FADE-IN ON SCROLL
 const faders = document.querySelectorAll('.fade-in');
 
-const appearOptions = {
-  threshold: 0,
-  rootMargin: '0px 0px -100px 0px'
-};
+const appearOptions = { threshold: 0, rootMargin: '0px 0px -100px 0px' };
 
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -136,9 +133,7 @@ const skillObserver = new IntersectionObserver(
       }
     });
   }, 
-  {
-    threshold: 0.5
-  }
+  { threshold: 0.5 }
 );
 
 if (skillSection) {
@@ -177,9 +172,7 @@ if (logo) {
       clearTimeout(clickTimer);
     } else {
       clearTimeout(clickTimer);
-      clickTimer = setTimeout(() => {
-        clickCount = 0;
-      }, clickTimeout);
+      clickTimer = setTimeout(() => { clickCount = 0; }, clickTimeout);
     }
   });
 
