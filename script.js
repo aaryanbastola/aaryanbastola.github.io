@@ -12,7 +12,6 @@ function getSystemTheme() {
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-// Initialize theme
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   setDataTheme(savedTheme);
@@ -23,7 +22,6 @@ if (savedTheme) {
   if (themeToggle) themeToggle.textContent = sysTheme === 'dark' ? '🌙' : '☀️';
 }
 
-// Listen for system theme changes (only if no manual user override)
 if (window.matchMedia) {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     if (!localStorage.getItem('theme')) {
@@ -34,13 +32,37 @@ if (window.matchMedia) {
   });
 }
 
-// On toggle button click
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     const currentTheme = root.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     setDataTheme(newTheme);
     themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+  });
+}
+
+// RESPONSIVE MOBILE NAVIGATION MENU
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mainNav = document.getElementById('main-nav');
+const navLinks = document.querySelectorAll('.nav-link, .resume-btn');
+
+if (mobileMenuBtn && mainNav) {
+  mobileMenuBtn.addEventListener('click', () => {
+    const isExpanded = mainNav.classList.toggle('active');
+    mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+    const menuIcon = mobileMenuBtn.querySelector('i');
+    if (menuIcon) {
+      menuIcon.className = isExpanded ? 'fas fa-times' : 'fas fa-bars';
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('active');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      const menuIcon = mobileMenuBtn.querySelector('i');
+      if (menuIcon) menuIcon.className = 'fas fa-bars';
+    });
   });
 }
 
@@ -88,13 +110,8 @@ function typeEffect() {
   setTimeout(typeEffect, delay);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  typeEffect();
-});
-
-// FADE-IN ON SCROLL
+// FADE-IN ANIMATIONS
 const faders = document.querySelectorAll('.fade-in');
-
 const appearOptions = { threshold: 0, rootMargin: '0px 0px -100px 0px' };
 
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -109,7 +126,7 @@ faders.forEach(fader => {
   appearOnScroll.observe(fader);
 });
 
-// ANIMATED SKILL BARS WHEN IN VIEW
+// ANIMATED SKILL BARS
 const skillBars = document.querySelectorAll('.bar-fill');
 const skillSection = document.getElementById('skills');
 
@@ -133,14 +150,14 @@ const skillObserver = new IntersectionObserver(
       }
     });
   }, 
-  { threshold: 0.5 }
+  { threshold: 0.3 }
 );
 
 if (skillSection) {
   skillObserver.observe(skillSection);
 }
 
-// PARALLAX BACKGROUND EFFECT
+// PARALLAX MOUSE SCROLL SHAPES
 const shape1 = document.querySelector('.shape1');
 const shape2 = document.querySelector('.shape2');
 
@@ -150,22 +167,96 @@ window.addEventListener('scroll', () => {
   if (shape2) shape2.style.transform = `translateY(${scrollY * 0.2}px)`;
 });
 
-// EASTER EGG: CLICK 5 TIMES ON LOGO TO REVEAL MODAL
+// DYNAMIC MODAL HYDRATION OVERLAY CONTROLLER
+const projectModal = document.getElementById('project-modal');
+const modalTitle = document.getElementById('modal-project-title');
+const modalTech = document.getElementById('modal-project-tech');
+const modalDesc = document.getElementById('modal-project-desc');
+const modalLink = document.getElementById('modal-project-link');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+projectCards.forEach(card => {
+  const triggerBtn = card.querySelector('.project-modal-trigger');
+  if (triggerBtn) {
+    triggerBtn.addEventListener('click', () => {
+      const title = card.getAttribute('data-title');
+      const tech = card.getAttribute('data-tech');
+      const desc = card.getAttribute('data-desc');
+      const url = card.getAttribute('data-url');
+
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalTech) modalTech.textContent = tech;
+      if (modalDesc) modalDesc.textContent = desc;
+      if (modalLink) modalLink.href = url;
+
+      if (projectModal) {
+        if (typeof projectModal.showModal === 'function') {
+          projectModal.showModal();
+        } else {
+          projectModal.style.display = 'block';
+        }
+      }
+    });
+  }
+});
+
+if (modalCloseBtn && projectModal) {
+  modalCloseBtn.addEventListener('click', () => {
+    if (typeof projectModal.close === 'function') {
+      projectModal.close();
+    } else {
+      projectModal.style.display = 'none';
+    }
+  });
+  
+  projectModal.addEventListener('click', (e) => {
+    if (e.target === projectModal) {
+      if (typeof projectModal.close === 'function') projectModal.close();
+      else projectModal.style.display = 'none';
+    }
+  });
+}
+
+// BACK-TO-TOP BUTTON SCROLL LOOPS
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.add('visible');
+  } else {
+    backToTopBtn.classList.remove('visible');
+  }
+});
+
+if (backToTopBtn) {
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+// EASTER EGG MANAGER
 const logo = document.getElementById('logo');
 const easterEgg = document.getElementById('easter-egg');
 const eggCloseBtn = document.getElementById('egg-close');
 let clickCount = 0;
 const requiredClicks = 5;
-const clickTimeout = 2000; // 2 seconds reset
+const clickTimeout = 2000;
 let clickTimer;
 
 if (logo) {
-  logo.addEventListener('click', () => {
+  logo.addEventListener('click', (e) => {
+    if(window.location.hash === "#home" || e.preventDefault) {
+      e.preventDefault();
+    }
     clickCount++;
     if (clickCount === requiredClicks) {
-      if (typeof easterEgg.showModal === 'function') {
+      if (easterEgg && typeof easterEgg.showModal === 'function') {
         easterEgg.showModal();
-      } else {
+      } else if (easterEgg) {
         easterEgg.style.display = 'block';
       }
       clickCount = 0;
@@ -184,7 +275,7 @@ if (logo) {
   });
 }
 
-if (eggCloseBtn) {
+if (eggCloseBtn && easterEgg) {
   eggCloseBtn.addEventListener('click', () => {
     if (typeof easterEgg.close === 'function') {
       easterEgg.close();
@@ -193,3 +284,7 @@ if (eggCloseBtn) {
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  typeEffect();
+});
