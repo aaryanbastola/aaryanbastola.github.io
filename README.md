@@ -28,22 +28,3 @@ A clean, minimalist, and highly responsive personal portfolio website. This proj
 
 ---
 
-## 🚀 Getting Started
-
-Follow these steps to get a local copy up and running.
-
-### 1. Installation
-Clone the repository or download the ZIP file and extract it.
-```bash
-git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/yourusername/your-repo-name.git)
-
-.
-├── README.md       # Project documentation
-├── index.html      # Main entry point (includes navigation & CV button)
-├── logo.html       # Alternate minimal entry point 
-├── style.css       # Main stylesheet for index.html
-├── logo.css        # Stylesheet specifically for logo.html
-├── script.js       # Core interactivity and navigation logic
-├── cv.pdf          # ⚠️ Replace with your own CV 
-└── logo.png        # ⚠️ Replace with your own Logo
-
