@@ -1,80 +1,70 @@
-🚀 Aaryan Bastola | Interactive Personal Portfolio
-A dynamic, immersive, and highly responsive personal portfolio website. Designed to put the spotlight directly on personal branding, this project features a perfectly centered layout, seamless CV integration, and interactive elements—including a live browser-based computer vision script and ambient parallax backgrounds.
+# 🚀 Aaryan Bastola | Personal Portfolio
 
-🔗 Live Demo: https://aaryanbastola.github.io/
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
-✨ Key Features
-🌓 Dynamic Theming: Built-in Dark and Light modes with automatic system-preference detection and persistent local storage saving.
+A clean, minimalist, and highly responsive personal portfolio website. This project is designed to put the spotlight directly on your personal brand by featuring a perfectly centered logo and an easily accessible, seamless CV download/view mechanism.
 
-✨ Immersive UI/UX: Features an ambient, animated "gold smoke" parallax background, smooth intersection-observer scroll animations, and a dynamic typewriter effect.
+> **🔗 Live Demo:** [Insert your live site link here, e.g., GitHub Pages link]
 
-📄 Automated File Management: Includes a custom Python automation script (manage_files.py) that organizes, renames, and deploys PDF certificates and resumes into the correct directories.
+---
 
-🖐️ Computer Vision Integration: Showcases a completely client-side Hand Gesture Recognition tool built with Google's MediaPipe, operating natively within the browser via the Canvas API.
+## ✨ Features
 
-📱 Fully Responsive: Flawless viewing across desktops, tablets, and mobile devices, complete with an accessible, togglable mobile navigation menu.
+* **Minimalist Design:** Keeps the focus entirely on your brand and your work.
+* **Fully Responsive:** Looks great on desktops, tablets, and mobile devices.
+* **Seamless CV Integration:** A fixed top-right "CV" button opens your resume in a new tab without interrupting the user's flow.
+* **Smooth Navigation:** Clean anchor transitions without page jumps or audio feedback.
+* **Easily Customizable:** Swap out two files, and the portfolio is instantly yours.
 
-🎯 Seamless CV Access: A dedicated, easily accessible CV download button that integrates without interrupting the user's navigational flow.
+---
 
-🛠️ Tech Stack
-Frontend Core: HTML5, CSS3, Vanilla JavaScript (ES6+).
+## 🛠️ Built With
 
-Computer Vision: Google MediaPipe (Hands), HTML5 Canvas API.
+* **HTML5:** Semantic structure and layout.
+* **CSS3:** Custom styling, centering, and responsive design.
+* **Vanilla JavaScript:** Lightweight DOM manipulation for smooth navigation.
 
-Backend Automation: Python 3 (Standard libraries: os, shutil).
+---
 
-Assets: FontAwesome Icons, Custom SVG shapes.
+## 🚀 Getting Started
 
-📁 Project Structure
-Plaintext
-aaryanbastola.github.io/
-│
-├── index.html               # Main portfolio structure
-├── style.css                # Global styles, variables, and animations
-├── script.js                # DOM manipulation, modals, and observer logic
-├── manage_files.py          # Python script to automate PDF organization
-├── logo.png                 # Personal branding logo
-│
-├── certs/                   # Auto-generated directory for certificates
-│   ├── certificate1.pdf
-│   └── ...
-│
-└── hand/                    # Computer vision project directory
-    └── hand-gesture.html    # MediaPipe hand tracking application
-🚀 Local Setup & Installation
-Want to run this project locally or fork it for your own use? Follow these steps:
+Follow these steps to get a local copy up and running.
 
-Clone the repository:
+### 1. Installation
+Clone the repository or download the ZIP file and extract it.
+```bash
+git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/yourusername/your-repo-name.git)
+2. Customization
+To make this portfolio your own, simply replace the placeholder assets in the root directory:
 
-Bash
-git clone https://github.com/aaryanbastola/aaryanbastola.github.io.git
-cd aaryanbastola.github.io
-Organize Your Files (Automated):
-Ensure your downloaded certificates and cv.pdf are in your local machine's download folder or the project root. Run the Python management script to automatically structure them:
+Replace logo.png with your own personal logo.
 
-Bash
-python manage_files.py
-Launch the App:
-Simply open index.html in your favorite modern web browser, or use a live server extension in VS Code for hot-reloading:
-Right-click index.html > Open with Live Server
+Replace cv.pdf with your updated resume/CV.
 
-🎨 Customization
-This portfolio is built to be modular. To make it your own:
+3. Usage
+Open index.html in your preferred web browser to view the site locally. No build tools or local servers are required!
+📁 File Structure|
+.
+├── README.md       # Project documentation
+├── index.html      # Main entry point (includes navigation & CV button)
+├── logo.html       # Alternate minimal entry point 
+├── style.css       # Main stylesheet for index.html
+├── logo.css        # Stylesheet specifically for logo.html
+├── script.js       # Core interactivity and navigation logic
+├── cv.pdf          # ⚠️ Replace with your own CV 
+└── logo.png        # ⚠️ Replace with your own Logo
 
-Colors: Open style.css and modify the --accent and background variables inside the :root pseudo-class.
+📫 Contact
+Aaryan Bastola * LinkedIn
 
-Data: Update the text inside index.html and swap out logo.png with your own headshot or brand logo.
+GitHub
 
-File Automation: Edit the SOURCE_TO_TARGET dictionary inside manage_files.py to match your own file names.
-
-📫 Let's Connect
-Feel free to reach out for collaborations, job inquiries, or just to talk tech!
-
-Email: aaryanbastola221@gmail.com
-
-LinkedIn: linkedin.com/in/aaryanbastola
-
-***
-
-
-© 2026 Aaryan Bastola. Built with passion and lots of coffee.
+Email
+### What changed to make it better?
+* **Visual Appeal:** Added standard GitHub skill badges (HTML, CSS, JS) at the top to make it look instantly recognizable to developers.
+* **Live Demo Placeholder:** Most good portfolios have a link to the live site right at the top.
+* **Actionable Verbs:** Expanded the "Features" section to sound more professional (e.g., changing "Logo centered" to "Minimalist Design: Keeps the focus entirely on your brand").
+* **Sectioned Logic:** Separated the "Getting Started" into Installation, Customization, and Usage so another developer (or future you) knows exactly what to do step-by-step.
+* **Contact Section:** Added a standard footer section for your professional links.
