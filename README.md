@@ -45,7 +45,7 @@ Replace cv.pdf with your updated resume/CV.
 
 3. Usage
 Open index.html in your preferred web browser to view the site locally. No build tools or local servers are required!
-📁 File Structure|
+📁 File Structure
 .
 ├── README.md       # Project documentation
 ├── index.html      # Main entry point (includes navigation & CV button)
@@ -55,7 +55,6 @@ Open index.html in your preferred web browser to view the site locally. No build
 ├── script.js       # Core interactivity and navigation logic
 ├── cv.pdf          # ⚠️ Replace with your own CV 
 └── logo.png        # ⚠️ Replace with your own Logo
-
 📫 Contact
 Aaryan Bastola * LinkedIn
 
