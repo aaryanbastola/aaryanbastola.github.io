@@ -12,7 +12,6 @@ function getSystemTheme() {
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-// Initialize theme
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   setDataTheme(savedTheme);
@@ -23,7 +22,6 @@ if (savedTheme) {
   if (themeToggle) themeToggle.textContent = sysTheme === 'dark' ? '🌙' : '☀️';
 }
 
-// Listen for system theme changes (only if no manual user override)
 if (window.matchMedia) {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     if (!localStorage.getItem('theme')) {
@@ -34,7 +32,6 @@ if (window.matchMedia) {
   });
 }
 
-// On toggle button click
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     const currentTheme = root.getAttribute('data-theme');
@@ -44,7 +41,7 @@ if (themeToggle) {
   });
 }
 
-// RESPONSIVE MOBILE MENU INTERACTION LOGIC
+// RESPONSIVE MOBILE NAVIGATION MENU
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mainNav = document.getElementById('main-nav');
 const navLinks = document.querySelectorAll('.nav-link, .resume-btn');
@@ -59,7 +56,6 @@ if (mobileMenuBtn && mainNav) {
     }
   });
 
-  // Automatically collapse responsive overlay when user triggers site route links
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       mainNav.classList.remove('active');
@@ -114,7 +110,7 @@ function typeEffect() {
   setTimeout(typeEffect, delay);
 }
 
-// FADE-IN ON SCROLL
+// FADE-IN ANIMATIONS
 const faders = document.querySelectorAll('.fade-in');
 const appearOptions = { threshold: 0, rootMargin: '0px 0px -100px 0px' };
 
@@ -130,7 +126,7 @@ faders.forEach(fader => {
   appearOnScroll.observe(fader);
 });
 
-// ANIMATED SKILL BARS WHEN IN VIEW
+// ANIMATED SKILL BARS
 const skillBars = document.querySelectorAll('.bar-fill');
 const skillSection = document.getElementById('skills');
 
@@ -161,7 +157,7 @@ if (skillSection) {
   skillObserver.observe(skillSection);
 }
 
-// PARALLAX BACKGROUND EFFECT
+// PARALLAX MOUSE SCROLL SHAPES
 const shape1 = document.querySelector('.shape1');
 const shape2 = document.querySelector('.shape2');
 
@@ -171,7 +167,7 @@ window.addEventListener('scroll', () => {
   if (shape2) shape2.style.transform = `translateY(${scrollY * 0.2}px)`;
 });
 
-// FEATURE: DYNAMIC PROJECT DIALOG MODAL HYDRATION MECHANISM
+// DYNAMIC MODAL HYDRATION OVERLAY CONTROLLER
 const projectModal = document.getElementById('project-modal');
 const modalTitle = document.getElementById('modal-project-title');
 const modalTech = document.getElementById('modal-project-tech');
@@ -184,13 +180,11 @@ projectCards.forEach(card => {
   const triggerBtn = card.querySelector('.project-modal-trigger');
   if (triggerBtn) {
     triggerBtn.addEventListener('click', () => {
-      // Pull metadata fields stored natively on parent card template elements
       const title = card.getAttribute('data-title');
       const tech = card.getAttribute('data-tech');
       const desc = card.getAttribute('data-desc');
       const url = card.getAttribute('data-url');
 
-      // Hydrate structure components safely
       if (modalTitle) modalTitle.textContent = title;
       if (modalTech) modalTech.textContent = tech;
       if (modalDesc) modalDesc.textContent = desc;
@@ -207,7 +201,6 @@ projectCards.forEach(card => {
   }
 });
 
-// Dismiss dynamic project detail window events
 if (modalCloseBtn && projectModal) {
   modalCloseBtn.addEventListener('click', () => {
     if (typeof projectModal.close === 'function') {
@@ -217,7 +210,6 @@ if (modalCloseBtn && projectModal) {
     }
   });
   
-  // Close dynamic modal when clicked outside content frame box boundary area
   projectModal.addEventListener('click', (e) => {
     if (e.target === projectModal) {
       if (typeof projectModal.close === 'function') projectModal.close();
@@ -226,7 +218,7 @@ if (modalCloseBtn && projectModal) {
   });
 }
 
-// FEATURE: SMOOTH FLOATING BACK-TO-TOP TRIGGER SYSTEM
+// BACK-TO-TOP BUTTON SCROLL LOOPS
 const backToTopBtn = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', () => {
@@ -246,7 +238,7 @@ if (backToTopBtn) {
   });
 }
 
-// EASTER EGG: CLICK 5 TIMES ON LOGO TO REVEAL MODAL
+// EASTER EGG MANAGER
 const logo = document.getElementById('logo');
 const easterEgg = document.getElementById('easter-egg');
 const eggCloseBtn = document.getElementById('egg-close');
@@ -257,7 +249,6 @@ let clickTimer;
 
 if (logo) {
   logo.addEventListener('click', (e) => {
-    // Only count clicks if user didn't shift-click or control-click to open in new page context
     if(window.location.hash === "#home" || e.preventDefault) {
       e.preventDefault();
     }
@@ -294,7 +285,6 @@ if (eggCloseBtn && easterEgg) {
   });
 }
 
-// Lifecycle Init Execution Loop trigger initialization mapping parameters
 document.addEventListener('DOMContentLoaded', () => {
   typeEffect();
 });
