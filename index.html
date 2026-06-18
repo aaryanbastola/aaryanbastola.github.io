@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <meta name="description" content="Portfolio of Aaryan Bastola, showcasing projects, skills, and certificates in Web Development, Python, C++, and Cybersecurity." />
-  <meta name="keywords" content="Aaryan Bastola, Portfolio, Web Developer, Cybersecurity, Python, C++" />
-  <meta name="author" content="Aaryan Bastola" />
-
+  <meta name="description" content="Portfolio of Aaryan Bastola, showcasing projects, skills, and certificates." />
   <title>Aaryan Bastola | Portfolio</title>
-
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="logo.png" type="image/png" />
-  
+  <link rel="icon" href="logo.png" type="image/png" id="dynamic-favicon" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+
+  <div id="scroll-progress"></div>
+
+  <canvas id="node-canvas" aria-hidden="true"></canvas>
+  <canvas id="matrix-canvas" aria-hidden="true" class="matrix-layer"></canvas>
 
   <div class="smoke-bg" aria-hidden="true"></div>
   <div class="parallax-bg" aria-hidden="true">
@@ -29,6 +28,22 @@
       <a href="#home" class="logo-container" aria-label="Go to homepage" id="logo">
         <img src="logo.png" alt="Aaryan Bastola Logo" class="site-logo" />
       </a>
+      
+      <div class="utility-controls">
+        <button id="cmd-trigger-btn" class="icon-btn" aria-label="Open Command Palette (Ctrl+K)">
+          <i class="fas fa-search"></i> <span class="shortcut-hint">Ctrl+K</span>
+        </button>
+        <button id="audio-toggle" class="icon-btn" aria-label="Toggle Ambient Audio">
+          <i class="fas fa-volume-mute"></i>
+        </button>
+        <button id="reading-toggle" class="icon-btn" aria-label="Toggle Reading Mode">
+          <i class="fas fa-book-open"></i>
+        </button>
+        <button id="dyslexia-toggle" class="icon-btn" aria-label="Toggle Dyslexia-Friendly Mode" title="Dyslexia Friendly Mode">
+          <i class="fas fa-universal-access"></i>
+        </button>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark and light theme"></button>
+      </div>
 
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open main menu" aria-expanded="false">
         <i class="fas fa-bars"></i>
@@ -37,11 +52,10 @@
       <nav aria-label="Main Navigation" id="main-nav">
         <a href="#home" class="nav-link">Home</a>
         <a href="#skills" class="nav-link">Skills</a>
+        <a href="#journey" class="nav-link">Journey</a>
         <a href="#projects" class="nav-link">Projects</a>
-        <a href="#certificates" class="nav-link">Certificates</a>
         <a href="#contact" class="nav-link">Contact</a>
         <a href="cv.pdf" download class="resume-btn">Download CV</a>
-        <button id="theme-toggle" aria-label="Toggle dark and light theme">🌙</button>
       </nav>
     </div>
   </header>
@@ -50,9 +64,14 @@
     <section class="hero-section fade-in" id="home">
       <div class="container hero-content">
         <div class="hero-text">
-          <h1>Hi, I'm <span class="highlight">Aaryan Bastola</span></h1>
-          <p class="typewriter" id="typewriter">A passionate developer.</p>
-          <a href="#projects" class="cta-btn">View My Projects</a>
+          <div id="whoami-terminal" class="whoami-terminal"></div>
+          <h1 id="hero-name" style="display: none;"><span class="highlight scramble-text name-glitch" data-original="Aaryan Bastola">Aaryan Bastola</span></h1>
+          <p class="typewriter" id="typewriter" aria-live="polite"></p>
+          
+          <div class="hero-actions">
+            <a href="#projects" class="cta-btn">View My Projects</a>
+            <button id="demo-trigger" class="cta-btn secondary-btn"><i class="fas fa-play"></i> Try Interactive Demo</button>
+          </div>
         </div>
         <div class="hero-logo">
           <div class="logo-container-hero">
@@ -62,113 +81,149 @@
       </div>
     </section>
 
-    <section class="skills-section fade-in" id="skills">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-bar">
-            <span class="skill-title">HTML — Intermediate</span>
-            <div class="bar-bg" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="HTML Skill Level"><div class="bar-fill" data-width="65%"></div></div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-title">CSS — Intermediate</span>
-            <div class="bar-bg" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="CSS Skill Level"><div class="bar-fill" data-width="65%"></div></div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-title">JavaScript — Intermediate</span>
-            <div class="bar-bg" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript Skill Level"><div class="bar-fill" data-width="60%"></div></div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-title">React.js — Learning</span>
-            <div class="bar-bg" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="React.js Skill Level"><div class="bar-fill" data-width="60%"></div></div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-title">Python — Intermediate</span>
-            <div class="bar-bg" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Python Skill Level"><div class="bar-fill" data-width="60%"></div></div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-title">Cybersecurity — Beginner</span>
-            <div class="bar-bg" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Cybersecurity Skill Level"><div class="bar-fill" data-width="35%"></div></div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-title">C — Intermediate</span>
-            <div class="bar-bg" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="C Skill Level"><div class="bar-fill" data-width="65%"></div></div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-title">C++ — Intermediate</span>
-            <div class="bar-bg" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="C++ Skill Level"><div class="bar-fill" data-width="65%"></div></div>
-          </div>
-        </div>
+    <section class="reading-section fade-in" id="reading-content" style="display: none;">
+      <div class="container reading-container">
+        <h2 class="section-title">The Developer's Narrative</h2>
+        <p>Code is not just syntax; it is a medium for solving human problems. My journey into technology started not with a compiler, but with a deep curiosity about how complex systems interact and impact our daily lives.</p>
+        <p>Whether I am structuring a resilient backend in Python, architecting an accessible frontend with React, or testing the security perimeters of a network, my philosophy remains the same: <em>build robustly, secure rigorously, and design empathetically.</em></p>
+        <p>I believe that the best developers are translators—turning abstract human needs into concrete, performant digital infrastructure. This portfolio is a glimpse into how I translate those ideas.</p>
       </div>
     </section>
 
-    <section class="projects-section fade-in" id="projects">
-      <div class="container">
-        <h2 class="section-title">My Projects</h2>
-        <div class="projects-grid">
-          <article class="project-card" 
-                   data-title="Hand Gesture Recognition" 
-                   data-tech="HTML5, Canvas API, JavaScript, Computer Vision" 
-                   data-desc="An interactive client-side application designed to track and decode hand gestures using real-time camera feeds. Optimized for lightweight execution and immediate in-browser visual responses without requiring heavy backend servers." 
-                   data-url="hand/hand-gesture.html">
-            <h3>Hand Gesture Recognition</h3>
-            <p>Real-time interactive computer vision script operating natively within modern web browsers.</p>
-            <button class="project-modal-trigger">Learn More <i class="fas fa-arrow-right"></i></button>
-          </article>
+    <div id="standard-content">
+      <section class="skills-section fade-in" id="skills">
+        <div class="container">
+          <h2 class="section-title scramble-text" data-original="Technical Arsenal">Technical Arsenal</h2>
+          <div class="bento-grid">
+            <div class="bento-item frontend tilt-target" tabindex="0">
+              <h3>Frontend</h3>
+              <div class="tech-icons">
+                <span><i class="fab fa-html5"></i> HTML</span>
+                <span><i class="fab fa-css3-alt"></i> CSS</span>
+                <span><i class="fab fa-js"></i> JavaScript</span>
+                <span><i class="fab fa-react"></i> React.js</span>
+              </div>
+            </div>
+            <div class="bento-item backend tilt-target" tabindex="0">
+              <h3>Backend & Core</h3>
+              <div class="tech-icons">
+                <span><i class="fab fa-python"></i> Python</span>
+                <span><i class="fas fa-code"></i> C</span>
+                <span><i class="fas fa-terminal"></i> C++</span>
+              </div>
+            </div>
+            <div class="bento-item cyber tilt-target" tabindex="0">
+              <h3>Cybersecurity</h3>
+              <p>Penetration Testing, Network Security & Ethical Hacking fundamentals.</p>
+              <i class="fas fa-shield-halved"></i>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="certificates-section fade-in" id="certificates">
-      <div class="container">
-        <h2 class="section-title">Certificates</h2>
-        <div class="certs-grid">
-          <article class="cert-card">
-            <h4>Networking Basics</h4>
-            <a href="certs/certificate1.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
-          </article>
-          <article class="cert-card">
-            <h4>Introduction to IoT and Digital Transformation</h4>
-            <a href="certs/certificate2.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
-          </article>
-          <article class="cert-card">
-            <h4>Ethical Hacker</h4>
-            <a href="certs/certificate3.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
-          </article>
-          <article class="cert-card">
-            <h4>Introduction to Cybersecurity</h4>
-            <a href="certs/certificate4.pdf" target="_blank" rel="noopener noreferrer" download>Open / Download</a>
-          </article>
+      <section class="timeline-section fade-in" id="journey">
+        <div class="container">
+          <h2 class="section-title scramble-text" data-original="My Journey">My Journey</h2>
+          <div class="timeline-wrapper">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content tilt-target" tabindex="0">
+                <h3>The Spark</h3>
+                <span class="timeline-date">The Beginning</span>
+                <p>Discovered the terminal and wrote my first lines of code. Ignited a lifelong passion for logic and problem-solving.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item right">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content tilt-target" tabindex="0">
+                <h3>Core Foundations</h3>
+                <span class="timeline-date">Learning Phase</span>
+                <p>Mastered C++ and Python. Started understanding memory management, data structures, and backend architecture.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content tilt-target" tabindex="0">
+                <h3>The Web & Security</h3>
+                <span class="timeline-date">Present</span>
+                <p>Expanded into modern Web Development and Cybersecurity. Began building interactive tools and participating in CTFs.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="projects-section fade-in" id="projects">
+        <div class="container">
+          <h2 class="section-title scramble-text" data-original="My Projects">My Projects</h2>
+          <div class="projects-grid">
+            <article class="project-card tilt-target" tabindex="0"
+                     data-title="Hand Gesture Recognition" 
+                     data-tech="HTML5, Canvas API, JavaScript, Computer Vision" 
+                     data-desc="An interactive client-side application designed to track and decode hand gestures using real-time camera feeds." 
+                     data-url="#">
+              <h3>Hand Gesture Recognition</h3>
+              <p class="desc-text" data-simple="A camera app that understands your hand movements without needing a mouse or keyboard.">Real-time interactive computer vision script operating natively within modern web browsers.</p>
+              <div class="project-actions">
+                  <button class="eli5-btn" aria-label="Explain Like I'm 5"><i class="fas fa-brain"></i> ELI5</button>
+                  <button class="project-modal-trigger">Learn More <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="terminal-section fade-in" id="terminal">
+        <div class="container">
+          <h2 class="section-title scramble-text" data-original="System Terminal">System Terminal</h2>
+          <div class="terminal-window tilt-target" tabindex="0">
+            <div class="terminal-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            </div>
+            <div class="terminal-body" id="terminal-output" aria-live="polite">
+              <p>> Welcome to Aaryan's system. Type 'help' for commands.</p>
+            </div>
+            <div class="terminal-input-line">
+              <span id="prompt-user">visitor@portfolio:~$</span>
+              <input type="text" id="terminal-command" autocomplete="off" aria-label="Terminal Input">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <section class="contact-section fade-in" id="contact">
+      <canvas id="contact-particles"></canvas>
       <div class="container">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-wrapper">
+        <h2 class="section-title scramble-text" data-original="Initiate Uplink">Initiate Uplink</h2>
+        <div class="contact-wrapper tilt-target">
           <div class="contact-info">
-            <h3>Let's Connect!</h3>
-            <p>Feel free to reach out for collaborations, job inquiries, or just to talk tech.</p>
+            <h3>Establish Connection</h3>
+            <p>Ready to deploy new projects or discuss security architecture? Ping my inbox directly below.</p>
             <p><i class="fas fa-envelope"></i> <a href="mailto:aaryanbastola221@gmail.com">aaryanbastola221@gmail.com</a></p>
-            <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aaryanbastola" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
-            <p><i class="fab fa-github"></i> <a href="https://github.com/aaryanbastola" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
+            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+            <p><i class="fab fa-github"></i> <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">GitHub</a></p>
           </div>
-          
-          <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <form class="contact-form" id="main-contact-form" action="#" method="POST">
             <div class="form-group">
-              <label for="form-name">Name</label>
-              <input type="text" id="form-name" name="name" placeholder="Your Full Name" required />
+              <label for="form-name">Identifier (Name)</label>
+              <input type="text" id="form-name" name="name" placeholder="John Doe" required />
             </div>
             <div class="form-group">
-              <label for="form-email">Email Address</label>
-              <input type="email" id="form-email" name="email" placeholder="name@example.com" required />
+              <label for="form-email">Return Node (Email)</label>
+              <input type="email" id="form-email" name="email" placeholder="john@domain.com" required />
             </div>
             <div class="form-group">
-              <label for="form-message">Message</label>
-              <textarea id="form-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+              <label for="form-message">Payload (Message)</label>
+              <textarea id="form-message" name="message" rows="5" placeholder="Encrypting message..." required></textarea>
             </div>
-            <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+            <button type="submit" class="submit-btn" id="contact-submit-btn">
+              <span>Transmit Data <i class="fas fa-satellite-dish"></i></span>
+            </button>
           </form>
         </div>
       </div>
@@ -177,7 +232,7 @@
 
   <footer class="main-footer">
     <div class="container">
-      <p>&copy; 2026 Aaryan Bastola. All rights reserved.</p>
+      <p>&copy; 2026 Aaryan Bastola. System Secured.</p>
     </div>
   </footer>
 
@@ -185,6 +240,26 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
+  <dialog id="cmd-palette-modal" aria-labelledby="cmd-title">
+    <div class="cmd-palette-container">
+      <div class="cmd-header">
+        <i class="fas fa-search"></i>
+        <input type="text" id="cmd-input" placeholder="Search sections or commands..." autocomplete="off">
+        <span class="cmd-esc">ESC to close</span>
+      </div>
+      <ul id="cmd-results" role="listbox">
+        <li role="option" tabindex="0" data-target="#home">Navigate: Home</li>
+        <li role="option" tabindex="0" data-target="#skills">Navigate: Skills</li>
+        <li role="option" tabindex="0" data-target="#journey">Navigate: Journey Timeline</li>
+        <li role="option" tabindex="0" data-target="#projects">Navigate: Projects</li>
+        <li role="option" tabindex="0" data-target="#terminal">Navigate: Terminal</li>
+        <li role="option" tabindex="0" data-target="#contact">Navigate: Contact</li>
+        <li role="option" tabindex="0" data-action="theme">Action: Toggle Theme</li>
+        <li role="option" tabindex="0" data-action="reading">Action: Toggle Reading Mode</li>
+      </ul>
+    </div>
+  </dialog>
+  
   <dialog id="project-modal" aria-labelledby="modal-project-title">
     <div class="modal-content">
       <h3 id="modal-project-title">Project Title</h3>
@@ -197,11 +272,32 @@
     </div>
   </dialog>
 
-  <dialog id="easter-egg" aria-labelledby="egg-title">
-    <h3 id="egg-title">🎉 Surprise! 🎉</h3>
-    <p>You found the hidden Easter egg! 🚀</p>
-    <button id="egg-close">Close</button>
+  <div id="perf-metrics" class="perf-hidden">
+    <div><strong>Site Health <i class="fas fa-heartbeat" style="color: #ff4757;"></i></strong></div>
+    <div>FPS: <span id="fps-counter">0</span></div>
+    <div>Memory: <span id="mem-counter">N/A</span></div>
+    <div>Load: <span id="load-counter">0</span>ms</div>
+    <div style="font-size: 0.65rem; margin-top: 5px; color:#aaa;">(Alt+P to toggle)</div>
+  </div>
+
+  <dialog id="demo-modal" aria-labelledby="modal-demo-title">
+    <div class="modal-content demo-modal-content">
+      <div class="modal-header">
+        <h3 id="modal-demo-title">Interactive Demo</h3>
+        <button id="demo-close-btn" class="icon-btn" aria-label="Close Demo"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="iframe-container">
+        <iframe src="hand-gesture.html" title="Interactive Code Demo" sandbox="allow-scripts allow-same-origin" class="demo-iframe"></iframe>
+      </div>
+    </div>
   </dialog>
+
+  <audio id="ambient-audio" loop preload="none">
+    <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
 
   <script src="script.js" defer></script>
 </body>
