@@ -4,13 +4,26 @@
   z-index: -2;
   pointer-events: none;
   overflow: hidden;
-  background: radial-gradient(ellipse at 80% 30%, #e0b95b66 0%, transparent 70%),
-              radial-gradient(ellipse at 20% 90%, #e0b95b33 0%, transparent 80%);
+  /* Retained your exact colors */
+  background: 
+    radial-gradient(ellipse at 80% 30%, #e0b95b66 0%, transparent 70%),
+    radial-gradient(ellipse at 20% 90%, #e0b95b33 0%, transparent 80%);
+  
+  /* Added to give the gradients room to shift without cutting off */
+  background-size: 150% 150%;
+  
+  /* Added to blend the gradients into a soft, smoke-like texture */
+  filter: blur(60px);
+  
   animation: smokemove 22s linear infinite alternate;
   opacity: 0.6;
 }
 
 @keyframes smokemove {
-  0% { background-position: 0px 0px, 0px 0px; }
-  100% { background-position: 120px 35px, -60px 70px; }
+  0% { 
+    background-position: 0px 0px, 0px 0px; 
+  }
+  100% { 
+    background-position: 120px 35px, -60px 70px; 
+  }
 }
