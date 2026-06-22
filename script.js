@@ -123,7 +123,7 @@ document.querySelectorAll('.desc-text').forEach(el => {
 });
 
 // ==========================================
-// 3. GAMIFICATION: CTF & TERMINAL SSH (With XSS Fix)
+// 3. GAMIFICATION: CTF & TERMINAL SSH
 // ==========================================
 fetch('/api/v1/status?token=flag{n3tw0rk_1nt3rc3pt10n}').catch(()=>null);
 
@@ -189,7 +189,7 @@ if (termInput && termOutput) {
               termOutput.innerHTML += `<br><p style="color:#ffbd2e">🎉 SYSTEM COMPROMISED. ALL FLAGS FOUND.</p>`;
               termOutput.innerHTML += `<p style="color:#ffbd2e">Initiating reward payload...</p>`;
               setTimeout(() => {
-                window.open('cv.pdf', '_blank'); 
+                window.open('Blue and White Modern Professional Resume.pdf', '_blank'); 
               }, 2000);
             }
           }
@@ -538,7 +538,7 @@ document.addEventListener('keydown', (e) => {
 // ==========================================
 // 7. SCROLL OBSERVERS & MODALS & PARTICLES
 // ==========================================
-const faders = document.querySelectorAll('.fade-in, .timeline-item, .project-card');
+const faders = document.querySelectorAll('.fade-in, .timeline-item, .project-card, .cert-card');
 const appearOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -558,16 +558,24 @@ const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mainNav = document.getElementById('main-nav');
 if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mainNav.classList.toggle('active'));
 
+// UPDATED: Dynamically linking the modal's site button
 const projectModal = document.getElementById('project-modal');
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', () => {
     const t = document.getElementById('modal-project-title');
     const d = document.getElementById('modal-project-desc');
+    const link = document.getElementById('modal-project-link'); 
+    const tech = document.getElementById('modal-project-tech'); 
+    
     if(t) t.textContent = card.dataset.title;
     if(d) d.textContent = card.dataset.desc;
+    if(tech) tech.textContent = card.dataset.tech; 
+    if(link) link.href = card.dataset.url || '#'; 
+    
     if (projectModal) projectModal.showModal();
   });
 });
+
 document.querySelectorAll('.modal-close-secondary').forEach(btn => {
   btn.addEventListener('click', (e) => {
     const parentDialog = e.target.closest('dialog');
@@ -578,8 +586,24 @@ document.querySelectorAll('.modal-close-secondary').forEach(btn => {
 const demoModal = document.getElementById('demo-modal');
 const demoTrigger = document.getElementById('demo-trigger');
 const demoCloseBtn = document.getElementById('demo-close-btn');
-if (demoTrigger && demoModal) demoTrigger.addEventListener('click', () => demoModal.showModal());
-if (demoCloseBtn && demoModal) demoCloseBtn.addEventListener('click', () => demoModal.close());
+const demoIframe = document.getElementById('demo-iframe');
+
+if (demoTrigger && demoModal) {
+  demoTrigger.addEventListener('click', () => {
+    if (demoIframe && !demoIframe.src) {
+        demoIframe.src = demoIframe.dataset.src;
+    }
+    demoModal.showModal();
+  });
+}
+if (demoCloseBtn && demoModal) {
+  demoCloseBtn.addEventListener('click', () => {
+    demoModal.close();
+    if (demoIframe) {
+        demoIframe.src = '';
+    }
+  });
+}
 
 const perfMetrics = document.getElementById('perf-metrics');
 const fpsCounter = document.getElementById('fps-counter');
