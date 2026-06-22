@@ -1,40 +1,42 @@
-# 🚀 Aaryan Bastola | Personal Portfolio
+# 🌐 Interactive Cyber-Theme Developer Portfolio
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+Welcome to the repository for my personal developer portfolio! This project is a modern, responsive, accessible, and gamified single-page application built from the ground up to showcase my skills, journey, verified credentials, and software projects with an immersive cybersecurity and interactive terminal aesthetic.
 
-An interactive, highly dynamic, and gamified personal portfolio designed for a developer with a focus on web architecture and cybersecurity. This project goes beyond a static resume, featuring a built-in terminal, Capture The Flag (CTF) challenges, deep accessibility support, and visually engaging HTML5 Canvas backgrounds. 
-
-> **🔗 Live Demo:** [Insert your live site link here, e.g., GitHub Pages link]
+🚀 **Live Demo:** [https://aaryanbastola.github.io](https://aaryanbastola.github.io)
 
 ---
 
-## ✨ Features
+## ⚡ Core Features & Tech Stack
 
-* **Gamified Experience:** Includes an interactive command-line terminal, a secret matrix mode (try the Konami code!), and hidden CTF flags to test visiting developers.
-* **Deep Accessibility:** Features built-in toggles for Dyslexia-Friendly Mode, Reading Mode, and full support for `prefers-reduced-motion`.
-* **Advanced UI/UX:** Equipped with a Command Palette (accessible via `Ctrl+K`), custom cursor tracking, 3D tilt cards, and ambient audio controls.
-* **Dynamic Backgrounds:** Custom-coded Canvas API networks, Matrix rain effects, and animated ambient smoke that react to user input.
-* **Seamless CV Integration:** Easy, one-click access to download or view your resume without breaking the user experience.
-
----
-
-## 🛠️ Built With
-
-* **HTML5:** Semantic structure, Canvas API, and dialog modaling.
-* **CSS3:** Custom properties for Dark/Light themes, keyframe animations, and responsive bento-grid layouts.
-* **Vanilla JavaScript:** Zero-dependency logic handling DOM manipulation, terminal SSH simulation, and performance metrics.
-* **Python:** (Showcased via core competencies and backend logic fundamentals).
+- **Tech Stack:** Semantic HTML5, Modular CSS3, Vanilla JavaScript (ES6+), and Python (file orchestration backend utility).
+- **Interactive Visuals:** Dynamic mouse-tracking 3D cards, real-time background interactive node arrays, and alternative hardware metrics overlay (`Alt + P`).
+- **Inclusive Accessibility:** Built-in Reading Mode, Dyslexia-Friendly font override, and fluid responsive design scaling for mobile/desktop.
+- **Automated File Ecosystem:** Integrated `manage_file.py` automation script to handle dynamic resume parsing and certification directory setup.
 
 ---
 
-## 🚀 Getting Started
+## 🕹️ How to Play / Explore
 
-Follow these steps to get a local copy up and running.
+This portfolio features an embedded ecosystem of gamified modules, hidden paths, and utility tools:
 
-### 1. Installation
-Clone the repository or download the ZIP file and extract it.
+* **⌨️ Command Palette (`Ctrl + K`):** Tap `Ctrl + K` or click the search utility icon to launch a terminal-style system filter. Use `Arrow keys` and `Enter` to navigate instantly to layout nodes or execute actions.
+* **💻 System Terminal Section:** Scroll down or jump to the Terminal. Type `help` to list commands. Explore configurations with commands like `about`, `ls`, `cat hints.txt`, or `metrics`.
+* ** Capture The Flag (CTF) Challenge:** There are **3 hidden flags** embedded inside the workspace. 
+    * *Hint 1:* Run basic reconnaissance by inspecting the source code layout.
+    * *Hint 2:* Monitor outgoing node handshakes in your browser's Network developer tab.
+    * *Hint 3:* Attempt to gain administrative status by typing `su root` inside the terminal window. Once you claim all three flags with `submit flag{...}`, the core server drops a premium rewards payload!
+* **🔮 The Konami Code (Reality Override):** Execute the classic sequence on your keyboard anywhere on the page:  
+    `↑` `↑` `↓` `↓` `←` `→` `←` `→` `b` `a`  
+    This forces a system override, morphing the application architecture into **Secret Matrix Mode**.
+
+---
+
+## 🛠️ Getting Started
+
+Follow these steps to run and test the repository environment completely offline on your local workspace:
+
+### 1. Clone the Node Architecture
+Download the repository using Git:
 ```bash
-git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/yourusername/your-repo-name.git)
+git clone [https://github.com/aaryanbastola/aaryanbastola.github.io.git](https://github.com/aaryanbastola/aaryanbastola.github.io.git)
+cd aaryanbastola.github.io
