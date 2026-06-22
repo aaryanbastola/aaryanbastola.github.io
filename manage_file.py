@@ -19,7 +19,9 @@ SOURCE_TO_TARGET = {
     str(DOWNLOADS_DIR / "cert.pdf"): "certificate4.pdf",             # Intro to Cybersecurity
 }
 
+# The new resume is placed at the top of the list so it is always detected
 POSSIBLE_CV_NAMES = [
+    "Blue and White Modern Professional Resume.pdf",
     "Aaryan_Bastola_Resume.pdf", "Aaryan_Bastola_CV.pdf",
     "resume.pdf", "CV.pdf", "aaryan_cv.pdf", "aaryan_resume.pdf"
 ]
